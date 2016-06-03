@@ -1,4 +1,5 @@
-var gulp = require('gulp'); //required for gulp
+//cwells 6.2016
+var gulp = require('gulp');
 var nunjucksRender = require('gulp-nunjucks-render');
 var sass = require('gulp-sass')
 var sequence = require('run-sequence');
@@ -10,19 +11,20 @@ gulp.task('test', function(){
 	console.log('Congratulations! Gulp is working correctly!');
 });
 
-//does nunjucks.
-//Nunjucks is the tool that takes the Nunjucks part of our HTML code
-//(the partials, modules, and blocks) and compiles them into a single
-//HTML document in the 'dist' directory for deployment.
+
+//compiles to html
 gulp.task('nunjucks', function() {
+
+	/*Nunjucks is the tool that takes the Nunjucks part of our HTML code
+	(the partials, modules, and blocks) and compiles them into a single
+ 	HTML document in the 'dist' directory for deployment. */
 
 	console.log('Compiling HTML');
 
-	return gulp.src('app/pages/**/*.html')
+	return gulp.src('src/pages/**/*.html')
 	// render template with nunjucks
 	.pipe(nunjucksRender({
-		path: ['app/templates/','app/templates/partials/'],
-		data: { css_path: 'app/templates/style.css'}
+		path: ['src/templates/','src/templates/partials/'],
 	}))
 	// output files in 'dist' directory
 	.pipe(gulp.dest('dist'))
@@ -30,21 +32,20 @@ gulp.task('nunjucks', function() {
 	.pipe(browserSync.reload({
 		stream: true
 	}));
-
-
 });
 
-//compiles sass, then minify the css files.
-//SASS is developer-friendly formatted CSS, unreadable by web browwers.
-//gulp-sass takes these files, and creates a single master .css file
-//in the 'dist' directory for deployment.
-//Additionally, before the .css file is finished, our plugin gulp-cssmin
-//minifies the css as well.
+//compiles to css/minify
 gulp.task('styles', function(){
+
+	/*SASS is developer-friendly formatted CSS, unreadable by web browwers.
+	gulp-sass takes these files, and creates a single master .css file
+	in the 'dist' directory for deployment.
+	Additionally, before the .css file is finished, our plugin gulp-cssmin
+	minifies the css as well. */
 
 	console.log('Compiling CSS')
 
-	return gulp.src('app/templates/sass/*.scss')
+	return gulp.src('src/stylesheets/*.scss')
 		//compiles sass
 		.pipe(sass().on('error', sass.logError))
 		//minivfies css
@@ -61,21 +62,19 @@ gulp.task('styles', function(){
 
 //default task
 gulp.task('default', function(done) {
-
-	//console.log('running default')
-
+	//default task compiles for dev
 	sequence('nunjucks', 'styles', done);
-	
 });
 
 //watch task
 gulp.task('watch', ['default', 'browserSync'], function(){
-	gulp.watch('app/templates/**/*.+(scss|html)',['default'],
-	['browsersync']);
-	gulp.watch('app/pages/**/*.html', ['default'])
+	gulp.watch('src/templates/**/*.html',['default'],
+	['browserSync']);
+	gulp.watch('src/pages/**/*.html', ['default']);
+	gulp.watch('src/stylesheets/**/*.+(scss|css)', ['default']);
 });
 
-//browsersync
+//browserSync
 gulp.task('browserSync', function()	{
 	browserSync({
 		server: {
@@ -83,3 +82,4 @@ gulp.task('browserSync', function()	{
 		}
 	})
 });
+

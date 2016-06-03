@@ -1,0 +1,101 @@
+$primColor: #349155;
+$secColor: #84ba9f;
+$font: Tahoma;
+$navfootHeight: 30px;
+
+@import "./node_modules/scss-flex-grid/_flex-grid.scss";
+
+
+body {
+	height: 100%;
+	font-size: 100%;
+	font-family: Tahoma;
+}
+
+nav {
+	height: $navfootHeight;
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	margin-bottom: 20px;
+	opacity: 0.8;
+
+
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	li {
+		display: inline;
+		background-color: $primColor;
+		margin: 0;
+		padding: 0;
+	
+		float: left;
+
+		a {
+			padding: 10px;
+			display: block;
+			color: white;
+			text-decoration: none;
+			background-color: $primColor;
+			text-align: center;
+			-webkit-transition: background-color .5s ease-in,
+				color .5s;
+			transition: background-color .5s, color .5s ease-in;
+
+
+			&:hover{
+				background-color: white;
+				color: $primColor;
+
+			}
+		}
+	}
+}
+
+#aside {
+	width: 200px;
+	float: left;
+	margin-top: 5px;
+	height: 100%;
+	bottom: 0;
+	background-color: $primColor;
+}
+
+#content {
+	text-align: left;
+	padding: 20px;
+	margin: 10px;
+	border-radius: 5px;
+	background-color: $secColor;
+}
+
+#content-main {
+	@extend #content;
+	min-height: 300px;
+
+	h1{
+		font-size: 35pt;
+	}
+
+	p{
+		font-size: 14pt;
+	}
+}
+
+footer {
+	position: fixed;
+	height: $navfootHeight;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	
+	background-color:$primColor;
+    color:white;
+    text-align:center;
+}

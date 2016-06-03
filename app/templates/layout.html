@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Conner's Gulp and Nunjucks Test</title>
+	<link rel="stylesheet" href="style.min.css">
+
+</head>
+
+<body>
+
+{% include "_Navbar.html" ignore missing %}
+
+{% block content %} {% endblock %}
+
+
+</body>
+
+{% include "_footer.html" ignore missing %}
+
+</html>

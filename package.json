@@ -1,0 +1,32 @@
+{
+  "name": "framework_project",
+  "version": "1.0.0",
+  "description": "My initial project at ConnectiveDX, building a personal custom web-framework.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "node-sass": "^3.7.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.12.10",
+    "gulp": "^3.9.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-sass": "^2.3.1",
+    "run-sequence": "^1.2.1",
+    "scss-flex-grid": "^0.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cskingmartin/frameworkProject.git"
+  },
+  "author": "cwells",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cskingmartin/frameworkProject/issues"
+  },
+  "homepage": "https://github.com/cskingmartin/frameworkProject#readme"
+}

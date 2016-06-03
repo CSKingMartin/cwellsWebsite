@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-lg-2 col-xs-0">
+	</div>
+	<div class="col-lg-10 col-xs-12">
+		<div id="content">
+
+		<h1>Connective DX, Day One</h1>
+
+		<p>Work started yesterday, and it gives me a lot to think about</p>
+
+		<p>I'm Conner Wells, a Computer Science student at Linfield College and I was lucky enough to land an internship at ConnectiveDX this summer -- a software/web development company in Portland Oregon. My experience so far with Web Development (what I want to focus on) is pretty minimal, so I wasn't sure what to expect on my first day.</p>
+
+		<p>Decidedly, I believe the term "trial by fire" is accurate for my next few weeks here.</p>
+
+		<p>What my supervisors would like me to be able to do within the next few months is be a part of the conversation and implementation of redesigning their web framework, currently named Phoenix. That in itself was a daunting proposition, but even better was their immediate plans for me.</p>
+
+		<p>Kam, one of my supervisors, "thought it would be fun if [I] would build [my] own web framework," in order to get up to speed and understanding with what that process looks like, or even <em>is.</em> He gave me a few avenues to look at, telling me to pick a build package/framework to work from. The suggested options were either Grunt, Gulp, or Webpack.</p>
+
+		<p>So my day yesterday consisted mostly of researching these three foreign words and finding more words to research when I wasn't being funneled through IT or HR for orientation. My efforts never seemed hopeless despite being pretty lost, the environment in the office is one of the best. But I did need a way to organize myself and wrap my head around this ever changing problem.</p>
+
+		<p>Within the last hour of my shift and the drive home I finally got my thoughts pretty organized. I was given a task (build a personal web framework, and then a website from said framework), with a single guideline (use Grunt, Gulp, or Webpack), with no timeline and pretty much no scope. The absence of the latter two objects really were the source of the struggle, not the lack of knowledge or experience. The web can provide all of the information I could ever want (and more) about these things if I invest the time. If I'm right in seeing this as a crucial first test of the summer, I think I have one thing right and that's in order to be successful here I need to be organized.</p>
+
+		<p>I'm going into work today with design plans, a definitive scope for my project, and my goals of what I want to learn and implement. I hope that earns the nods of approval from the team, and that I start making a few ripples in this pond. I'll update some of the more definite plans after they're reviewed, and I'll be keeping track of my progress here over the summer.</p>
+
+		&nbsp;
+
+		--end
+
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-2 col-xs-0">
+	</div>
+	<div class="col-lg-10 col-xs-12">
+		<div id="content">
+			<h1>Connective DX, Day Two</h1>
+			It's amazing how much one can learn in a single day.
+
+			Most of what I was planning to do today I got done (neutral good). However -- my list of new pieces to add keeps getting longer (chaotic neutral), and the details of said pieces are particularly difficult to comprehend (lawful evil).
+
+			Let's start with what I narrowed down:
+			<h2>Creating a personal Web Framework</h2>
+			This was a daunting task to be given, especially when yesterday I probably couldn't define exactly what a "web framework" was. Part of my success today was simply organizing my thoughts as to what the hell I was supposed to do. My personal goals were (are) as such:
+			<ol>
+				<li>Implement a framework that would allow me to use SASS. For those who are unfamiliar with this term, SASS is a differently formatted version of CSS, designed for faster writing. Unfortunately, HTML5 doesn't take a raw .scss file and spit out what it's supposed to look like. (Analogy: like giving a German man Russian instructions to defuse a Swiss bomb). That's why I would have use of a framework that will convert my .scss files into .css files.</li>
+				<li>Have my framework use one of the three Build Tools suggested to me. The three that were mentioned by my coworkers yesterday were Grunt, Gulp, and Webpack. Of the three I decided on using Gulp because I thought it looked like the most understandable, and thus the easier of the three. (Coworker-Evan pointed out I was very wrong about this over Indian food yesterday). But persevere I did, and I was successful in using Gulp pretty handily with my project.</li>
+				<li>Use some of the tools from the Gulp community to supplement my framework. In a quick summary, Gulp is a build tool that will pipe streams of tasks (which are also streams). On paper, this explanation seems really dumb. Let me give an example:
+			<pre>
+			gulp.task('styles', function(){
+				return gulp.src('app/templates/sass/*.scss')
+				.pipe(sass().on('error', sass.logError))
+				.pipe(gulp.dest('dist'))
+				});
+			</pre>
+			This is a sample from my gulpfile. If I run the command "gulp styles" in my terminal, it'll do the following chain of commands: find all .scss files in the directory, check for errors, and convert them to .css files and put them in the "dist" folder. Streams or tasks are linked together with Gulp.</li>
+			</ol>
+			<p style="padding-left: 60px;">So next I'm looking into more outside resources that I can piece together so that my development process becomes slicker and easier.</p>
+
+			<h2>Building a Website Using my Framework:</h2>
+			This is essential for me understanding the purpose behind this project, and also understanding exactly how ConnectiveDX does some of their work. When they build a product for clients, they never start from scratch. They use their own framework (Phoenix) to help them be able to deliver efficiently, and with great detail. That's why frameworks are important for their development (and now mine). By building a website using my framework I'm getting experience and practice doing relevant work in the field, seeing the immediate effects and positives of the process provided by my framework, and overall becoming more familiar with the modern tools and practices that I'll potentially be using in the next few months as I move on.
+
+			<p>Tomorrow I have a list of potential tools to research and add, as well as a lot of room to flesh out the usage of the tools I've already chosen and begun to work with.</p>
+
+			<p>Compared to the helter-skelter day yesterday, having some solid ground to build off of feels promising.</p>
+
+			&nbsp;
+
+			-end
+		</div>
+	</div>
+</div>
+
+{% endblock %}

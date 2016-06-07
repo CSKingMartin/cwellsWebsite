@@ -4,6 +4,8 @@
 
 <script type="text/javascript"></script>
 
+{% set id = 0 %}
+
 
 {% macro getArticle(id) %}
 
@@ -22,8 +24,25 @@
 
 {% endmacro %}
 
-{{getArticle(1)}}
+{{getArticle(id)}}
 
+
+
+<div id = "content">
+
+<button onclick="myFunction()">Article 0</button>
+
+<p id="demo">{{articles[0].content}}</p>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "{{articles[1].content}}";
+}
+</script>
+
+			
+
+</div>
 
 
 {% endblock %}

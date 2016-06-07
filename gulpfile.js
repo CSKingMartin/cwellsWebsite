@@ -7,7 +7,6 @@ var browserSync = require('browser-sync');
 var ccsmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var data = require('gulp-data');
-var fs = require('fs');
 
 gulp.task('test', function(){
 	console.log('Congratulations! Gulp is working correctly!');
@@ -81,7 +80,7 @@ gulp.task('move', function(done) {
 //default task
 gulp.task('default', function(done) {
 	//default task compiles for dev
-	sequence('nunjucks', 'styles', done);
+	sequence('nunjucks', 'styles', 'move', done);
 });
 
 //watch task
@@ -91,6 +90,7 @@ gulp.task('watch', ['default', 'browserSync'], function(){
 	gulp.watch('src/pages/**/*.html', ['default']);
 	gulp.watch('src/stylesheets/**/*.+(scss|css)', ['default']);
 	gulp.watch('./data.json', ['default']);
+	gulp.watch('src/articles/**/*.html',['default']);
 });
 
 //browserSync

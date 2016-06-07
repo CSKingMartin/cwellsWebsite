@@ -1,0 +1,34 @@
+{% block content %}
+
+<h1>Organization (Days Three and Four)</h1>
+
+Looking back on days 3 and 4 of work, a lot of the progress I made wasn't content-focused. That isn't to say I didn't make progress as a whole (enter the "why do you even pay me" conversation), but rather I did a lot of cleanup and a lot of research on <em>how</em> to cleanup my work.
+<h1>OOCSS and SMACSS</h1>
+At some point during my third day, I had asked coworker-Evan about something that's arbitrary to the point I'm about to make. During that conversation he had a look at my SASS code (one of my proud new skills), and he made some observations that figureheaded the next leg of my journey.
+
+He remarked that the code that I had written as the beginning of my website wasn't stylistically seen in the modern industry. I think he avoided going into too much detail in order to give me a chance to discover what he meant on my own, but he did point me in a direction with two acronyms: OOCSS and SMACSS.
+<h2>OOCSS</h2>
+OOCSS stands for Object Oriented CSS, and it's a design philosophy used to help promote code that's fast, easy to maintain, and overall reusable. Object-Oriented Programming is not a new idea in Computer Science. OOCSS is practically the same methodology, but instead applied to CSS classes and Web Development.
+
+After coworker-Evan mentioned it I did a quick Google search (https://www.smashingmagazine.com/2011/12/an-introduction-to-object-oriented-css-oocss/) and learned what I could.
+
+OOCSS has two main pillars. I'll explain both briefly:
+<ol>
+	<li style="padding-left: 30px;"><strong>Separation of Structure from Skin</strong>
+Both these are easy to understand. OOCSS enforces that you keep the Style Elements unique to your site away from the basic structure of the elements you're using. For example, things like borders, shadows, colors, etc. would fall under the category of "skin". Placing these elements into a .skin class which can be applied to multiple elements. The "structure" pieces crucial to the elements themselves (which can be reused across multiple pages or sites) should be separated from the "skin" bits, but likewise placed in classes to be applied to multiple div elements.</li>
+	<li style="padding-left: 30px;"><strong>Separation of Containers and Content</strong>
+This is a very similar point to the one described above. Code that you write for websites should be focused on trying not to duplicate styles. Have abstract structural styles that can be reused anywhere. Common features should be put in modules or objects to be reused, such as widths, content-alignment, etc.</li>
+</ol>
+<h2>SMACSS</h2>
+SMACSS stands for Scalable and Modular Architecture for CSS. It's an easily digestible book by Jonathan Snook and it influenced the overarching organization of my work. The book goes into detail on writing CSS and SASS files, but I mostly used the sections on keeping pieces of websites organized. The overall hierarchy of my file directory was overhauled as a result of this book.
+<h1>In Conclusion</h1>
+It's needless to say, that much cleaning ensued. This included redirecting my existing Gulp tasks to pull pieces from a now organized directory with each type of piece in it's own bucket (insert Lego brick analogy).
+
+Now that I'm all organized, I'm allowing myself to develop my site in peace. I have much to improve on in the area of actually writing good HTML and CSS code at a basic level, but hopefully the framework that I've built will now carry me into a much easier development process where I can hone my skills.
+
+&nbsp;
+
+--end
+
+
+{% endblock %}

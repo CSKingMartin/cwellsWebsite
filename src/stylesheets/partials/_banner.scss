@@ -1,10 +1,10 @@
 #banner {
-	height: 125px;
+	min-height: 125px;
 	width: 100%;
 	top: 0;
 	right: 0;
 	left: 0;
 	background-image: url(../images/greenBanner.jpg);
-	background-size: 100%;
+	background-size: cover;
 	background-repeat: no-repeat;
 }

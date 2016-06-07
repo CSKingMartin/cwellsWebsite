@@ -6,6 +6,7 @@ var sequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var ccsmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
+var data = require('gulp-data');
 
 gulp.task('test', function(){
 	console.log('Congratulations! Gulp is working correctly!');
@@ -22,6 +23,9 @@ gulp.task('nunjucks', function() {
 	console.log('Compiling HTML');
 
 	return gulp.src('src/pages/**/*.html')
+	.pipe(data(function() {
+		return require('./personal_website/*.json')
+	}))
 	// render template with nunjucks
 	.pipe(nunjucksRender({
 		path: ['src/templates/','src/templates/partials/'],

@@ -1,0 +1,38 @@
+{% block content %}
+
+			<h1>Connective DX, Day Two</h1>
+			It's amazing how much one can learn in a single day.
+
+			Most of what I was planning to do today I got done (neutral good). However -- my list of new pieces to add keeps getting longer (chaotic neutral), and the details of said pieces are particularly difficult to comprehend (lawful evil).
+
+			Let's start with what I narrowed down:
+			<h2>Creating a personal Web Framework</h2>
+			This was a daunting task to be given, especially when yesterday I probably couldn't define exactly what a "web framework" was. Part of my success today was simply organizing my thoughts as to what the hell I was supposed to do. My personal goals were (are) as such:
+			<ol>
+				<li>Implement a framework that would allow me to use SASS. For those who are unfamiliar with this term, SASS is a differently formatted version of CSS, designed for faster writing. Unfortunately, HTML5 doesn't take a raw .scss file and spit out what it's supposed to look like. (Analogy: like giving a German man Russian instructions to defuse a Swiss bomb). That's why I would have use of a framework that will convert my .scss files into .css files.</li>
+				<li>Have my framework use one of the three Build Tools suggested to me. The three that were mentioned by my coworkers yesterday were Grunt, Gulp, and Webpack. Of the three I decided on using Gulp because I thought it looked like the most understandable, and thus the easier of the three. (Coworker-Evan pointed out I was very wrong about this over Indian food yesterday). But persevere I did, and I was successful in using Gulp pretty handily with my project.</li>
+				<li>Use some of the tools from the Gulp community to supplement my framework. In a quick summary, Gulp is a build tool that will pipe streams of tasks (which are also streams). On paper, this explanation seems really dumb. Let me give an example:
+			<pre>
+			gulp.task('styles', function(){
+				return gulp.src('app/templates/sass/*.scss')
+				.pipe(sass().on('error', sass.logError))
+				.pipe(gulp.dest('dist'))
+				});
+			</pre>
+			This is a sample from my gulpfile. If I run the command "gulp styles" in my terminal, it'll do the following chain of commands: find all .scss files in the directory, check for errors, and convert them to .css files and put them in the "dist" folder. Streams or tasks are linked together with Gulp.</li>
+			</ol>
+			<p style="padding-left: 60px;">So next I'm looking into more outside resources that I can piece together so that my development process becomes slicker and easier.</p>
+
+			<h2>Building a Website Using my Framework:</h2>
+			This is essential for me understanding the purpose behind this project, and also understanding exactly how ConnectiveDX does some of their work. When they build a product for clients, they never start from scratch. They use their own framework (Phoenix) to help them be able to deliver efficiently, and with great detail. That's why frameworks are important for their development (and now mine). By building a website using my framework I'm getting experience and practice doing relevant work in the field, seeing the immediate effects and positives of the process provided by my framework, and overall becoming more familiar with the modern tools and practices that I'll potentially be using in the next few months as I move on.
+
+			<p>Tomorrow I have a list of potential tools to research and add, as well as a lot of room to flesh out the usage of the tools I've already chosen and begun to work with.</p>
+
+			<p>Compared to the helter-skelter day yesterday, having some solid ground to build off of feels promising.</p>
+
+			&nbsp;
+
+			-end
+
+
+{%endblock%}

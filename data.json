@@ -1,21 +1,8 @@
-"articles":[
-	{"id": 1, "title":"Connective DX, Day One", "content":"<p>Work started yesterday, and it gives me a lot to think about</p>
-
-		<p>I'm Conner Wells, a Computer Science student at Linfield College and I was lucky enough to land an internship at ConnectiveDX this summer -- a software/web development company in Portland Oregon. My experience so far with Web Development (what I want to focus on) is pretty minimal, so I wasn't sure what to expect on my first day.</p>
-
-		<p>Decidedly, I believe the term "trial by fire" is accurate for my next few weeks here.</p>
-
-		<p>What my supervisors would like me to be able to do within the next few months is be a part of the conversation and implementation of redesigning their web framework, currently named Phoenix. That in itself was a daunting proposition, but even better was their immediate plans for me.</p>
-
-		<p>Kam, one of my supervisors, "thought it would be fun if [I] would build [my] own web framework," in order to get up to speed and understanding with what that process looks like, or even <em>is.</em> He gave me a few avenues to look at, telling me to pick a build package/framework to work from. The suggested options were either Grunt, Gulp, or Webpack.</p>
-
-		<p>So my day yesterday consisted mostly of researching these three foreign words and finding more words to research when I wasn't being funneled through IT or HR for orientation. My efforts never seemed hopeless despite being pretty lost, the environment in the office is one of the best. But I did need a way to organize myself and wrap my head around this ever changing problem.</p>
-
-		<p>Within the last hour of my shift and the drive home I finally got my thoughts pretty organized. I was given a task (build a personal web framework, and then a website from said framework), with a single guideline (use Grunt, Gulp, or Webpack), with no timeline and pretty much no scope. The absence of the latter two objects really were the source of the struggle, not the lack of knowledge or experience. The web can provide all of the information I could ever want (and more) about these things if I invest the time. If I'm right in seeing this as a crucial first test of the summer, I think I have one thing right and that's in order to be successful here I need to be organized.</p>
-
-		<p>I'm going into work today with design plans, a definitive scope for my project, and my goals of what I want to learn and implement. I hope that earns the nods of approval from the team, and that I start making a few ripples in this pond. I'll update some of the more definite plans after they're reviewed, and I'll be keeping track of my progress here over the summer.</p>
-
-		&nbsp;
-
-		--end"}
+{"articles":[
+	{"title":"Connective DX, Day One", "content":"_article1.html"},
+	{"title":"Connective DX, Day Two", "content":"_article2.html"},
+	{"title":"Connective DX, Day Three", "content":"_article3.html"},
+	{"title":"Connective DX, Day Four", "content":"_article4.html"},
+	{"title":"Connective DX, Day Five", "content":"_article5.html"}
 	]	
+}

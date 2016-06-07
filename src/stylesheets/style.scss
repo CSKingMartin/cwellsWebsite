@@ -3,7 +3,7 @@ $secColor: #84ba9f;
 $font: Tahoma;
 $navfootHeight: 30px;
 
-@import "./node_modules/scss-flex-grid/_flex-grid.scss";
+@import "vendor/flex-grid", "partials/banner", "partials/navbar";
 
 
 body {
@@ -12,51 +12,7 @@ body {
 	font-family: Tahoma;
 }
 
-nav {
-	height: $navfootHeight;
-	position: fixed;
-	top:0;
-	left: 0;
-	width: 100%;
-	margin-bottom: 20px;
-	opacity: 0.8;
 
-
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-	}
-
-	li {
-		display: inline;
-		background-color: $primColor;
-		margin: 0;
-		padding: 0;
-	
-		float: left;
-
-		a {
-			padding: 10px;
-			display: block;
-			color: white;
-			text-decoration: none;
-			background-color: $primColor;
-			text-align: center;
-			-webkit-transition: background-color .5s ease-in,
-				color .5s;
-			transition: background-color .5s, color .5s ease-in;
-
-
-			&:hover{
-				background-color: white;
-				color: $primColor;
-
-			}
-		}
-	}
-}
 
 #aside {
 	width: 200px;

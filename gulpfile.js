@@ -12,6 +12,14 @@ gulp.task('test', function(){
 	console.log('Congratulations! Gulp is working correctly!');
 });
 
+var manageEnvironment = function(environment) {
+	
+	environment.addFilter('getArticle', function(id) {
+		return '{% include articles[' + id + '].content ignore missing %}';
+	});
+	 
+	environment.addGlobal('globalTitle', 'My global title')	
+	}
 
 //compiles to html
 gulp.task('nunjucks', function() {
@@ -19,20 +27,23 @@ gulp.task('nunjucks', function() {
 	/*Nunjucks is the tool that takes the Nunjucks part of our HTML code
 	(the partials, modules, and blocks) and compiles them into a single
  	HTML document in the 'dist' directory for deployment. */
+
+
 	return gulp.src('src/pages/**/*.html')
-	.pipe(data(function() {
-		return require('./data.json')
-	}))
-	// render template with nunjucks
-	.pipe(nunjucksRender({
-		path: ['src/templates/','src/templates/partials/', 'src/articles/']
-	}))
-	// output files in 'dist' directory
-	.pipe(gulp.dest('dist/'))
-	//refresh the browser with updated HTML file
-	.pipe(browserSync.reload({
-		stream: true
-	}));
+		.pipe(data(function() {
+			return require('./data.json')
+		}))
+		// render template with nunjucks
+		.pipe(nunjucksRender({
+			path: ['src/templates/','src/templates/partials/', 'src/articles/'],
+			manageEnv: manageEnvironment
+		}))
+		// output files in 'dist' directory
+		.pipe(gulp.dest('dist/'))
+		//refresh the browser with updated HTML file
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 //compiles to css/minify

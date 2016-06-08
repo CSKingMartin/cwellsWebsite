@@ -2,89 +2,48 @@
 
 {% block content %}
 
-<script type="text/javascript"></script>
-
-{% set id = 0 %}
-
-
 <div class="row">
 	<div class="col-lg-2 col-xs-0">
+		<div id="content" style="background-image: url(../images/greenContent.jpg)">
+
+			<ul style="list-style: none; position: center;">
+				<li><button class="button" aValue = "1">Article 1</button></li>
+				<li><button class="button" aValue = "2">Article 2</button></li>
+				<li><button class="button" aValue = "3">Article 3</button></li>
+				<li><button class="button" aValue = "4">Article 4</button></li>
+			</ul>
+			
+
+			<script>
+			$(".button").click(function(){
+				var id = $(this).attr('aValue');
+			    $.ajax({ url: './articles/_article' + id + '.html',
+			        success: function(str) {
+			            $("#mainContent").html(str);
+			        },
+			        error: function(err) {
+			            alert("I'm sorry, that article doesn't exist!");
+			        }
+				});
+			});
+			</script>
+
+		</div>
 	</div>
 	<div class="col-lg-10 col-xs-12">
 			
 		<div id="content">
+			<p id= "mainContent">
 
-			{% include articles[id].content ignore missing %}	
+				Press a button on the sidebar to select a post to read!
+
+			</p>
 
 		</div>		
 	</div>
 </div>
 
 
-
-
-<!-- 
-<div id = "content">
-
-<button onclick="myFunction(0)">Article 0</button>
-
-<button onclick="myFunction(1)"">Article 1</button>
-
-<button onclick="myFunction(2)">Article 2</button>
-
-<button onclick="myFunction(3)">Article 3</button>
-
-<p id="demo">{{articles[0].content}}</p>
-
-<script>
-function myFunction(value) {
-
-		var str1 = value.toString();
-		var finalString = "{{articles[" + value.toString() + "].content}}";
-	    document.getElementById("demo").innerHTML = finalString;
-
-	    //"{{articles[2].content}}"  
-}
-</script>
-
-		 -->	
-
-</div>
-
-<div id = "content">
-
-<button onclick="myFunctionA()">Article 0</button>
-
-<button onclick="myFunctionB()"">Article 1</button>
-
-<button onclick="myFunctionC()">Article 2</button>
-
-<button onclick="myFunctionD()">Article 3</button>
-
-<p id="demo1"></p>
-
-<script>
-function myFunctionA() {
-
-	    document.getElementById("demo1").innerHTML = "{% include articles[0].content ignore missing %}";
-}
-function myFunctionB() {
-
-	    document.getElementById("demo1").innerHTML = "{% include articles[1].content ignore missing %}";
-}
-function myFunctionC() {
-
-	    document.getElementById("demo1").innerHTML = "{% include articles[2].content ignore missing %}";
-}
-function myFunctionD() {
-
-	    document.getElementById("demo1").innerHTML = "{% include articles[3].content ignore missing %}";
-}
-</script>
-
-			
-
-</div>
 
 
 {% endblock %}

@@ -3,7 +3,11 @@ $secColor: #84ba9f;
 $font: Tahoma;
 $navfootHeight: 30px;
 
-@import "vendor/flex-grid", "partials/banner", "partials/navbar";
+@import "vendor/flex-grid", 
+"partials/banner", 
+"partials/navbar",
+"partials/footer",
+"modules/button";
 
 
 body {

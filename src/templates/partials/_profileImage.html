@@ -1,0 +1,68 @@
+{% block content %}
+
+<div class="profile">
+
+	<div class="imageWrapper">
+
+		<button id="left" class="hoverButton selectArrow left">
+		</button>
+
+		<div class="profileImage">
+			<img id="pimg" src="./images/testImages/dog1.jpg"/>
+
+		</div>
+
+		<button id="right" class="hoverButton selectArrow right">
+		</button>
+
+	</div>
+
+	<h2>Conner Wells</h2>
+
+	<script>
+
+	var index = 1;
+
+	$(".hoverButton").click(function(){
+		if($(this).attr("id") == "right"){
+			if(index < 4){
+				index++;
+			}
+			else
+			{
+				index = 1;
+			}
+		}else{
+			if(index > 1){
+				index--;
+			}
+			else
+			{
+				index = 4;
+			}
+		}
+		$.ajax({ 
+			success: function() {
+				var str = './images/testImages/dog' + index + '.jpg';
+				$('#pimg').attr("src", str);
+
+			},
+			error: function(err) {
+				alert("I'm sorry, something went wrong");
+			}
+
+		});
+	});
+
+	</script>
+
+</div>
+
+<h2>What am I looking at, Jim?</h2>
+
+<p>What indeed. I'm Conner Wells, a student currently interning at Connective DX in Portland, OR</p>
+
+<p>This is a website I'm building for myself to document my time as an intern. Most (if not all) of the content used to create this site are things I've learned directly from said internship.</p>
+
+
+{% endblock %}

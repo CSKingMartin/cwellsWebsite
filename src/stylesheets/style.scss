@@ -1,5 +1,6 @@
 $primColor: #349155;
 $secColor: #84ba9f;
+$backColor: #F5F5F5;
 $font: Tahoma;
 $navfootHeight: 30px;
 
@@ -7,13 +8,17 @@ $navfootHeight: 30px;
 "partials/banner", 
 "partials/navbar",
 "partials/footer",
-"modules/button";
+"modules/button",
+"modules/sidebar",
+"modules/profileImage";
 
 
 body {
 	height: 100%;
 	font-size: 100%;
 	font-family: Tahoma;
+	position: relative;
+	background-color: $backColor;
 }
 
 
@@ -31,8 +36,7 @@ body {
 	text-align: left;
 	padding: 20px;
 	margin: 10px;
-	border-radius: 5px;
-	background-color: $secColor;
+	background-color: white;
 }
 
 #content-main {
@@ -46,16 +50,4 @@ body {
 	p{
 		font-size: 14pt;
 	}
-}
-
-footer {
-	position: fixed;
-	height: $navfootHeight;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	
-	background-color:$primColor;
-    color:white;
-    text-align:center;
 }

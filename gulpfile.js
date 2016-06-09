@@ -96,8 +96,7 @@ gulp.task('default', function(done) {
 
 //watch task
 gulp.task('watch', ['default', 'browserSync'], function(){
-	gulp.watch('src/templates/**/*.html',['default'],
-	['browserSync']);
+	gulp.watch('src/templates/**/*.html',['default']);
 	gulp.watch('src/pages/**/*.html', ['default']);
 	gulp.watch('src/stylesheets/**/*.+(scss|css)', ['default']);
 	gulp.watch('./data.json', ['default']);

@@ -4,5 +4,13 @@
 	{"title":"Connective DX, Day Three", "content":"_article3.html"},
 	{"title":"Connective DX, Day Four", "content":"_article4.html"},
 	{"title":"Connective DX, Day Five", "content":"_article5.html"}
-	]	
+	],
+
+
+"profileImages":[
+	{"url":"./images/testImages/dog1.jpg", "alt":"test dog 1"},
+	{"url":"./images/testImages/dog2.jpg", "alt":"test dog 2"},
+	{"url":"./images/testImages/dog3.jpg", "alt":"test dog 3"},
+	{"url":"./images/testImages/dog4.jpg", "alt":"test dog 4"}
+	]
 }

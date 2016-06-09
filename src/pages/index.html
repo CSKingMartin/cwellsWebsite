@@ -2,25 +2,24 @@
 
 {% block content %}
 	
-	<div class="row">
-		<div class="col-xs-12 col-md-3">
-			<div id="content" style="background-image: url(../images/greenContent.jpg)">
-				<h2>Content on the left!</h2>
-				<p>This is now mainly a test for flexbox grid. I want to see how the text wraps and changes as the size of the page also changes.</p>
+	<div class="sidebar">
+		
+		{% include "_profileImage.html" ignore missing %}	
 
-				<p>Fill the space, fill the space, fill the space, fill the space, fill the space, fill the space.</p>
-
-				<p>{{ globalTitle }}</p>
-
-			</div>
-		</div>
-
-		<div class="col-xs-12 col-md-9">
-			<div id="content">
-				<h2>Content on the right!</h2>
-				<p>Fill the space, fill the space, fill the space, fill the space, fill the space, fill the space, fill the space, fill the space, fill the space.</p>
-			</div>
-		</div>
 	</div>
+
+			<div id="content">
+				{% for article in articles %}
+
+				<p src="{{article.content}}"></p>
+
+				{% endfor %}
+			</div>
+		
+	</div>
+
+
+
+
 	
 {% endblock %}

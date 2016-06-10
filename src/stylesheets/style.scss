@@ -9,8 +9,8 @@ $navfootHeight: 30px;
 "partials/navbar",
 "partials/footer",
 "modules/button",
-"modules/sidebar",
-"modules/profileImage";
+"modules/fullProfileCard",
+"modules/colProfileCard";
 
 
 body {
@@ -21,16 +21,6 @@ body {
 	background-color: $backColor;
 }
 
-
-
-#aside {
-	width: 200px;
-	float: left;
-	margin-top: 5px;
-	height: 100%;
-	bottom: 0;
-	background-color: $primColor;
-}
 
 #content {
 	text-align: left;

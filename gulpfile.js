@@ -7,6 +7,8 @@ var browserSync = require('browser-sync');
 var ccsmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
 var data = require('gulp-data');
+var uglify = require('gulp-uglify');
+var jshint = require('gulp-jshint');
 
 gulp.task('test', function(){
 	console.log('Congratulations! Gulp is working correctly!');
@@ -55,8 +57,6 @@ gulp.task('styles', function(){
 	Additionally, before the .css file is finished, our plugin gulp-cssmin
 	minifies the css as well. */
 
-	console.log('Compiling CSS')
-
 	return gulp.src('src/stylesheets/*.scss')
 		//compiles sass
 		.pipe(sass().on('error', sass.logError))
@@ -71,6 +71,17 @@ gulp.task('styles', function(){
 			stream: true
 		}));
 });
+
+//uglify and lint js
+gulp.task('java', function(){
+	gulp.src('./src/js/*.js')
+	.pipe(jshint())
+	.pipe(jshint.reporter('default'))
+	.pipe(jshint.reporter('fail'))
+	.pipe(uglify())
+	.pipe(gulp.dest('dist/js/'));
+});
+
 
 //moves images and articles
 gulp.task('moveImages', function() {
@@ -91,7 +102,7 @@ gulp.task('move', function(done) {
 //default task
 gulp.task('default', function(done) {
 	//default task compiles for dev
-	sequence('nunjucks', 'styles', 'move', done);
+	sequence('nunjucks', 'styles', 'java', 'move', done);
 });
 
 //watch task
@@ -101,6 +112,7 @@ gulp.task('watch', ['default', 'browserSync'], function(){
 	gulp.watch('src/stylesheets/**/*.+(scss|css)', ['default']);
 	gulp.watch('./data.json', ['default']);
 	gulp.watch('src/articles/**/*.html',['default']);
+	gulp.watch('src/js/**/*.js', ['default']);
 });
 
 //browserSync

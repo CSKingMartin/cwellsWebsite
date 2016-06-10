@@ -1,10 +1,28 @@
+.sidebar {
+	height: 600px;
+	width: 240px;
+	background-color: white;
+	border: 2px solid $secColor;
+	padding: 20px;
+	margin: 10px;
+
+	text-align: center;
+
+}
 .profile {
 	width: auto;
 	height: auto;
 	margin: auto;
 	padding: 5px;
 	text-align: center;
-	background-color: $backColor;
+	background-color: white;
+	border-bottom: 2px solid $secColor;
+	position: relative;
+
+	p, h1, h2, h3, h4 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 
 
 	.hoverButton {
@@ -30,6 +48,40 @@
 	}
 }
 
+
+
+ul.logo {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	margin-top: 3px;
+	margin-left: -6px;
+	width: 260px;
+	left: 0;
+
+	li{
+		float: left;
+		padding: 5px;
+		border-right: solid black 1px;
+
+		img {
+			width: auto;
+			
+		}
+
+		&.last {
+			border-right: none;
+		}
+	}
+}
+
+.logoImg {
+	max-width: 75px;
+	height: 20px;
+}
+
+
 .imageWrapper {
 
 	height: 170px;
@@ -54,6 +106,7 @@
 	height: 175px;
 	margin: 0 auto;
 	border-radius: 90px;
+	border: 2px solid $backColor;
 	background-color: white;
 	position: center;
 	//display: inline;
@@ -82,5 +135,24 @@
 		background-image: url(./images/arrowLeft.png);
 
 
+	}
+}
+
+.smallImage {
+	display: none;
+	float: left;
+	width: 45px;
+	height: 45px;
+	border-radius: 25px;
+	img{
+		border-radius: 25px;
+		max-width: 45px;
+		max-height: 45px;
+	}
+}
+
+@media screen and (max-width:1024px) {
+	.sidebar {
+		display: none;
 	}
 }

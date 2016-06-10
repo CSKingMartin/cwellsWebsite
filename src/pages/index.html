@@ -2,23 +2,12 @@
 
 {% block content %}
 	
-	<div class="sidebar">
+
 		
-		{% include "_profileImage.html" ignore missing %}	
+	{% include "_fullProfileCard.html" ignore missing %}	
 
-	</div>
-
-			<div id="content">
-				{% for article in articles %}
-
-				<p src="{{article.content}}"></p>
-
-				{% endfor %}
-			</div>
-		
-	</div>
-
-
+	
+	{% include "_colProfileCard.html" ignore missing %}	
 
 
 	

@@ -5,6 +5,7 @@
 	<title>Conner's Gulp and Nunjucks Test</title>
 	<link rel="stylesheet" href="style.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
 
 </head>
 
@@ -14,7 +15,13 @@
 
 {% include "_navbar.html" ignore missing %}
 
-{% block content %} {% endblock %}
+<div id="pageWrap">
+
+	{% block content %} 
+
+	{% endblock %}
+
+</div>
 
 </body>
 

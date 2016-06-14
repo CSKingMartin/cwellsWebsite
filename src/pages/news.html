@@ -2,11 +2,9 @@
 
 {% block content %}
 
-<div class="row">
-	<div class="col-lg-2 col-xs-0">
-		<div id="content" style="background-image: url(../images/greenContent.jpg)">
-
-			<ul style="list-style: none; position: center;">
+<div class="sidebar">
+	
+			<ul style="list-style: none;">
 				<li><button class="button" aValue = "1">Article 1</button></li>
 				<li><button class="button" aValue = "2">Article 2</button></li>
 				<li><button class="button" aValue = "3">Article 3</button></li>
@@ -16,19 +14,15 @@
 
 			<script src="./js/getArticle.js"></script>
 
-		</div>
-	</div>
-	<div class="col-lg-10 col-xs-12">
-			
-		<div id="content">
-			<p id= "mainContent">
+</div>
+	
+	
+<div id="content">
+	<p id= "mainContent">
 
-				Press a button on the sidebar to select a post to read!
+		Press a button on the sidebar to select a post to read!
 
-			</p>
-
-		</div>		
-	</div>
+	</p>
 </div>
 
 {% endblock %}

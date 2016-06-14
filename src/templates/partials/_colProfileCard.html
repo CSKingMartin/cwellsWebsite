@@ -1,13 +1,48 @@
 {% block content %}
 
+
 <div class="collapsedCard"> 
-	<ul>
+	<ul id="profileList">
 		<li><img class="sm-profileImage" src="./images/meImages/cwells1.png"></li>
-		<li>Conner Wells @</li>
+		<li><h2>Conner Wells @</h2></li>
 		<li class="logo"><a href="http://www.connectivedx.com"><img src="./images/icons/cdx-logo.png"></a></li>
-		<li class="expButton"><h1>&#8942</h1></li>
+		<li class="end"><button class="expButton"><h1>&#8942</h1></button></li>
 
 	</ul>
+
+	<div class ="cardContent">
+
+	
+
+		<div class="leftCardContent">
+
+	 	<div class="imageWrapper">
+
+			<button id="left" class="hoverButton selectArrow left">
+			</button>
+
+			<div class="profileImage">
+				<img id="pimg" src="./images/meImages/cwells1.png"/>
+
+			</div>
+
+			<button id="right" class="hoverButton selectArrow right">
+			</button>
+
+		</div>
+
+
+		<script src="./js/profileImg.js"></script>
+
+		</div>
+
+		<div class="rightCardContent">
+			<p>World</p>
+		</div>
+	</div>
+
+	<script src="./js/expandCard.js"></script>
+
 </div>
 
 {% endblock %}

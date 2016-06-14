@@ -1,12 +1,24 @@
 .sidebar {
-	height: 600px;
+	float: left;
+	display: inline-block;
+	height: 620px;
 	width: 240px;
 	background-color: white;
 	border: 2px solid $secColor;
 	padding: 20px;
-	margin: 10px;
+	margin-left: 10px;
+	
 
 	text-align: center;
+
+	p, h1, h2, h3, h4 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	h3 {
+		color: $primColor;
+	}
 
 }
 .profile {
@@ -18,12 +30,6 @@
 	background-color: white;
 	border-bottom: 2px solid $secColor;
 	position: relative;
-
-	p, h1, h2, h3, h4 {
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-
 
 	.hoverButton {
 		height: 50px;

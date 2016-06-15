@@ -30,7 +30,7 @@ body {
 	//border: 2px solid blue;
 }
 
-#content {
+.menu {
 	margin: 10px;
 	padding: 20px;
 	margin-left: 300px;
@@ -39,13 +39,43 @@ body {
 	min-height: 600px;
 	background-color: white;
 	box-sizing: border-box;
+	position: relative;
 
+	.menuHeader {
+		margin: 20px;
+		p{
+			//text-align: center;
+			font-size: 14pt;
+		}
+	}
+
+	.menuContent {
+		margin: 20px;
+		position: relative;
+
+		ul {
+			padding: 20px;
+			list-style: none;
+			display: inline;
+			width: 100%;
+
+			li {
+				float: left;
+				margin: 20px;
+				width: 25%;			
+			}
+		}
+	}
+
+	
+
+	
 }
 
 
 
 @media screen and (max-width:1024px) {
-	#content {
+	.menu {
 		margin-left: 10px;
 	}
 }

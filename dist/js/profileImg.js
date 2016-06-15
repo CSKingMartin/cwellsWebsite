@@ -1,1 +1,0 @@
-var index=1;$(".hoverButton").click(function(){"right"==$(this).attr("id")?3>index?index++:index=1:index>1?index--:index=3,$.ajax({success:function(){var n="./images/meImages/cwells"+index+".png";$("#pimg").attr("src",n)},error:function(n){alert("I'm sorry, something went wrong")}})});

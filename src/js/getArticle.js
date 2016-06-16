@@ -1,7 +1,7 @@
 $(function() {
     $(".button").click(function(){
         var id = $(this).attr('aValue');
-        $.ajax({ url: './articles/_article' + id + '.html',
+        $.ajax({ url: './articles/article' + id + '.html',
             success: function(str) {
                 //alert(str);
                 $("#mainContent").html(str);

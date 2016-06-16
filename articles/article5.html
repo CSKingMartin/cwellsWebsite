@@ -1,0 +1,34 @@
+<h1>Static vs. Dynamic Sites</h1>
+<h3>June 15, 2016</h3>
+
+<h2>I'm getting better and better at identifying what I don't need</h2>
+I don't need to use every tool at my disposal. Scope creep is the term used in development where the project you're creating keeps getting larger and larger after the product has been ordered. While creating my own website and framework I'm experiencing this often and in large doses (like arbitrarily using tools I don't need just because I can).
+
+After designing a few components and modules for my still very imaginary and prototype site, I decided I wanted a shift in direction and work on a bit more of the functionality rather than the aesthetic portion.
+
+I previously outlined that I'd eventually like my site to replace this Wordpress blog -- this was and is a part of my original scope. There's a lot of functionality that could come along with this. The extent of and what kind of functionality of my site wasn't defined yet. So I set out to look at ways to start making a blog-like website from scratch.
+I don't know if you've heard, but Google isn't helpful if you don't know what you're looking for (see: a dowsing rod in a desert). I was attempting at identifying tools used to get the types of functionality I wanted, and see if they were compatible with what I already started. I asked supervisor-Kam about what he used for his blogging site (kamsar.net) and he gave me a few avenues to look at.
+<h2>The real choice I was making:</h2>
+A few quick minutes over chat later and I have a fresh understanding of what I was looking for. What I had already built on my site was satisfactory to an extent. I could take the HTML or text from my blog posts here, store them in the directory and call them up whether through Nunjucks on the build side, or through Javascript and Ajax on the browser. What I was looking for was more dynamic interaction on the site -- that is have information moving between users and the server via the website.
+
+What I wanted was a dynamic site. At least, that's what I thought I wanted -- some structure that utilised a Content Management System (CMS) so I can do things like post from my site instead of from the back end, and allow users to comment on said posts.
+
+However, there might be better ways to achieve what I want. A website, StaticGen.com puts it very nicely: "each page [on a dynamic site] is assembled from templates and content on each request to the server. For most sites this is completely unnecessary." I think that holds for my site as well -- I don't need to be able to post from the browser when I'm already having success from doing it pre-build. No one else is going to be posting to my site either, so why go through all this trouble?
+
+So as an alternative, Kam pointed me to:
+<h2>SSGs</h2>
+For once this term, when defined, wasn't too foreign. SSGs are familiar to an extent.
+
+Static sites are websites where when accessed, the severs hosting them pass the raw HTML files. No compiling, moving parts, or funny business.
+
+An SSG is a Static Site Generator. Essentially it takes the bits and pieces of a website (blog posts, content, images) and puts them all together in the raw HTML that will be hosted. The idea is to get all of the compiling and dynamic parts of what you've written said and done with before you ship it out.
+
+Sounds familiar? Sounds like a Web Framework to me...
+
+SSGs are great tools -- they're a middleman between using quick and dirty drag-and-drop default hosts like Wordpress or Squarespace, and between building the site completely from scratch yourself (what I'm doing). For those interested, www.staticgen.com lists the most used generators as well as more information about these in a broad sense.
+
+The extra bits I really want can be crafted otherwise without having a dynamic site. Categorical metadata such as post-dates, tags, and others can be added manually,; and Kam pointed me towards Disqus (disqus.com), which he uses for his static site for comments.
+
+So again, I'm redirected towards the right horizon and I think I've got some work to do. I hope, by the end of the week, to have at least something hosted to show my progress. Until next time.
+
+--end

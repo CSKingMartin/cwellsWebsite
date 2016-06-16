@@ -1,0 +1,1 @@
+$(function(){$(".button").click(function(){var t=$(this).attr("aValue");$.ajax({url:"./articles/_article"+t+".html",success:function(t){$("#mainContent").html(t)},error:function(t){alert("I'm sorry, that article doesn't exist!")}})})});

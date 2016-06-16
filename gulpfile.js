@@ -9,6 +9,9 @@ var rename = require('gulp-rename');
 var data = require('gulp-data');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
+var rimraf = require('gulp-rimraf');
+var ignore = require('gulp-ignore');
+
 
 gulp.task('test', function(){
 	console.log('Congratulations! Gulp is working correctly!');
@@ -41,7 +44,7 @@ gulp.task('nunjucks', function() {
 			manageEnv: manageEnvironment
 		}))
 		// output files in 'dist' directory
-		.pipe(gulp.dest('dist/'))
+		.pipe(gulp.dest('dist'))
 		//refresh the browser with updated HTML file
 		.pipe(browserSync.reload({
 			stream: true
@@ -99,10 +102,23 @@ gulp.task('move', function(done) {
 	sequence('moveImages', 'moveArticles', done);
 });
 
+
+gulp.task('clean', function() {
+	return gulp.src('./dist/*', {read: false})
+	.pipe(ignore('./dist/.git'))
+	.pipe(rimraf());
+});
+
+
 //default task
 gulp.task('default', function(done) {
 	//default task compiles for dev
 	sequence('nunjucks', 'styles', 'java', 'move', done);
+});
+
+gulp.task('build', function(done) {
+	//default task compiles for dev
+	sequence('clean', 'nunjucks', 'styles', 'java', 'move', done);
 });
 
 //watch task

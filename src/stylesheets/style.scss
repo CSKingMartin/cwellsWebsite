@@ -4,13 +4,13 @@ $backColor: #F5F5F5;
 $font: Ubuntu;
 $navfootHeight: 30px;
 
-@import "vendor/flex-grid", 
-"partials/banner", 
+@import "partials/banner", 
 "partials/navbar",
 "partials/footer",
-"modules/button",
+"modules/opt-btn",
 "modules/fullProfileCard",
-"modules/colProfileCard";
+"modules/colProfileCard",
+"modules/clear-btn";
 
 
 body {
@@ -28,6 +28,19 @@ body {
 	position: relative;
 
 	//border: 2px solid blue;
+}
+
+.headBox {
+	height: 60px;
+	margin-top: 0;
+	padding:0;
+	width: 100%;
+	background-color: $primColor;
+	p{
+		margin: 0 auto;
+		font-size: 14pt;
+		padding: 20px;
+	}
 }
 
 .menu {

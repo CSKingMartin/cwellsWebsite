@@ -1,5 +1,5 @@
 $(function() {
-    $(".button").click(function(){
+    $(".clear-btn").click(function(){
         var id = $(this).attr('aValue');
         $.ajax({ url: './articles/article' + id + '.html',
             success: function(str) {

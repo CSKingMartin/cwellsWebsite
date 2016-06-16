@@ -1,5 +1,3 @@
-
-
 .smallCard{
 
 	height: 220px;
@@ -12,66 +10,13 @@
 	text-align: center;
 	margin: 0 auto;
 
-	//display: inline;
-	
 	}
 
-	&#example{
-		.button {
-			width: 150px;
-			height: 150px;
-			border-radius: 75px;
-			background-color: $primColor;
-			margin: 0 auto;
-			margin-top: 5px;
-			position: relative;
-			z-index: 1;
-			border: 2px solid white;
-
-			
-			
-
-			p, h1, h2, h3, h4, h5{
-				top: 30%;
-				transform: rotate(-15deg) skew(-15deg, 0);
-				text-align: center;
-				margin: 0;
-				position: relative;
-				border-top: 2px solid black;
-				border-bottom: 2px solid black;
-				padding: 0;
-				font-size: 35pt;
-				}
-			
-		}
-
-		.secText{
-			font-size: 30px;
-			top: -45px;
-			position: relative;
-			z-index: 2;
-			margin: 0;
-			margin-bottom: 5px;
-		}
-
-		
-		.secOption {
-			line-height: 0px;
-			position: relative;
-			top: -10px;
-			border-top: 2px solid $secColor;
-			border-bottom: 2px solid $secColor;
-			font-size: 35pt;
-			letter-spacing: 10px;
-			text-align: center;
-			padding-left: 15px;
-			margin: 0;
-		}
-	}&#one{
+	&.opt-btn-dual{
 
 		a{
-				text-decoration: none;
-			}
+			text-decoration: none;
+		}
 		.button {
 			width: 150px;
 			height: 150px;
@@ -90,9 +35,6 @@
 
 			cursor: pointer;
 
-
-			
-
 			p, h1, h2, h3, h4, h5{
 				top: 23%;
 				transform: rotate(-15deg) skew(-15deg, 0);
@@ -110,8 +52,6 @@
 			}
 
 			&:hover {
-
-
 				background-color: white;
 				border: 2px solid $primColor;
 				h1 {
@@ -132,7 +72,6 @@
 
 		}
 
-		
 		.secOption {
 			line-height: 0px;
 			position: relative;
@@ -156,10 +95,9 @@
 				border-bottom-color: white;
 			}
 		}
-
-
 	}
-	&#two{
+
+	&.opt-btn-single{
 		.button {
 			width: 150px;
 			height: 150px;
@@ -195,19 +133,13 @@
 			}
 
 			&:hover {
-
-
 				background-color: white;
 				border: 2px solid $primColor;
 				h1 {
-					color: $primColor;
-					
+					color: $primColor;	
 				}
 			}
 		}
-
-
-
 
 		.secText{
 			font-size: 30px;
@@ -219,7 +151,6 @@
 
 		}
 
-		
 		.secOption {
 			line-height: 0px;
 			position: relative;
@@ -243,94 +174,6 @@
 				border-bottom-color: white;
 			}
 		}
-
-
-	}
-	&#three{
-		.button {
-			width: 150px;
-			height: 150px;
-			border-radius: 75px;
-			background-color: $primColor;
-			margin: 0 auto;
-			margin-top: 5px;
-			position: relative;
-			z-index: 1;
-			border: 2px solid white;
-			color: white;
-
-			-webkit-transition: background-color .5s, border .5s ease-in,
-			color .5s;
-			transition: background-color .5s, color .5s, border .5s ease-in;
-
-			cursor: pointer;
-			
-
-			p, h1, h2, h3, h4, h5{
-				top: 30%;
-				transform: rotate(-15deg) skew(-15deg, 0);
-				text-align: center;
-				margin: 0;
-				position: relative;
-				border-top: 2px solid black;
-				border-bottom: 2px solid black;
-				padding: 0;
-				font-size: 30pt;
-				-webkit-transition: background-color .5s ease-in,
-				color .5s;
-				transition: background-color .5s, color .5s ease-in;
-			}
-
-			&:hover {
-
-
-				background-color: white;
-				border: 2px solid $primColor;
-				h1 {
-					color: $primColor;
-					
-				}
-			}
-		}
-
-
-
-
-		.secText{
-			font-size: 30px;
-			top: -23px;
-			position: relative;
-			z-index: 2;
-			margin: 0;
-			margin-bottom: 5px;
-
-		}
-
-		
-		.secOption {
-			line-height: 0px;
-			position: relative;
-			top: -10px;
-			border-top: 2px solid $secColor;
-			border-bottom: 2px solid $secColor;
-			font-size: 30pt;
-			//letter-spacing: 10px;
-			text-align: center;
-			padding-left: 5px;
-			cursor: pointer;
-			margin: 0;
-
-			-webkit-transition: background-color .5s, border .5s ease-in,
-			color .5s;
-			transition: background-color .5s, color .5s, border .5s ease-in;
-
-			&:hover {
-				color: $primColor;
-				border-top-color: white;
-				border-bottom-color: white;
-			}
-		}
-
-
 	}
 }
+	

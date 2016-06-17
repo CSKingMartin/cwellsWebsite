@@ -5,7 +5,7 @@
 <div class="sidebar" style ="padding: 0; width: 280px">
 	
 	<div class="headBox">
-		<p>Articles:</p>
+		<p style="margin-top: 0">Articles:</p>
 	</div>
 
 	{% for article in articles %}
@@ -18,14 +18,37 @@
 
 	</button>
 
-
-
 	{% endfor %}
 
 	<script src="./js/getArticle.js"></script>
 	
 
 </div>
+
+<div class="expMenu">
+	<ul>
+	<li><h2>Articles</h2>
+	<li class="end"><button class="expButton"><h1>&#8942</h1></button></li>
+	</ul>
+
+	<div class ="cardContent">
+
+		{% for article in articles %}
+	
+		<button class="clear-btn" aValue = "{{article.index}}">
+
+			{{article.title}}
+
+			<p class= "subText">{{article.postDate}}</p>
+
+		</button>
+
+		{% endfor %}
+
+	</div>
+
+</div>
+<script src="./js/expandCard.js"></script>
 	
 	
 <div class="menu">

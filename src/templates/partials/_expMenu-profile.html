@@ -1,7 +1,7 @@
 {% block content %}
 
 
-<div class="collapsedCard"> 
+<div class="expMenu"> 
 	<ul id="profileList">
 		<li><img class="sm-profileImage" src="./images/meImages/cwells1.png"></li>
 		<li><h2>Conner Wells @</h2></li>
@@ -12,33 +12,24 @@
 
 	<div class ="cardContent">
 
-	
-
 		<div class="leftCardContent">
 
-	 	<div class="imageWrapper">
+	 		{% import '_profileCard.html' as profileCard %}
 
-			<button id="left" class="hoverButton selectArrow left">
-			</button>
+			{{profileCard.makeProfile('', './images/meImages/cwells1.png', '', '')}}
 
-			<div class="profileImage">
-				<img id="pimg" src="./images/meImages/cwells1.png"/>
-
-			</div>
-
-			<button id="right" class="hoverButton selectArrow right">
-			</button>
+			{% include 'modules/_findMeWidget.html' %}
 
 		</div>
 
+		<div class="menu">
 
-		<script src="./js/profileImg.js"></script>
+			<h2>About:</h2>
+
+			<p>Conner Wells is a to-be Senior attending Linfield College in McMinnvile, OR. He's pursuing a degree in Computer Science, and interning at Connective DX in Portland, OR for the Summer of 2016.</p>
 
 		</div>
 
-		<div class="rightCardContent">
-			<p>World</p>
-		</div>
 	</div>
 
 	<script src="./js/expandCard.js"></script>

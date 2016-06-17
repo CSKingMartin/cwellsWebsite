@@ -4,7 +4,7 @@
 
 			console.log("onClick");
 
-			$(".collapsedCard").toggleClass("expandedCard");
+			$(".expMenu").toggleClass("expMenu-exp");
 
 
 			if (tf == "0") {

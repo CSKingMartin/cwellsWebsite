@@ -1,169 +1,71 @@
-.smallCard{
-
-	height: 220px;
-	width: 180px;
-	border: 2px solid $secColor;
-	background-color: $backColor;
-	position: relative;
-	margin: 10%;
-
-	p, h1, h2, h3, h4, h5 {
-	text-align: center;
-	//margin: 0 auto;
-
-	}
-
-	&.opt-btn-dual{
-
-		a{
+.opt-btn {
+	a {
 			text-decoration: none;
 		}
-		.button {
-			width: 150px;
-			height: 150px;
-			border-radius: 75px;
-			background-color: $primColor;
-			margin: 0 auto;
-			margin-top: 5px;
-			position: relative;
-			z-index: 1;
-			border: 2px solid white;
-			color: white;
+	.button {
 
-			-webkit-transition: background-color .5s, border .5s ease-in,
-			color .5s;
-			transition: background-color .5s, color .5s, border .5s ease-in;
+		width: 150px;
+		height: 150px;
+		border-radius: 75px;
+		background-color: $primColor;
+		margin: 0 auto;
+		margin-top: 5px;
+		position: relative;
+		z-index: 1;
+		border: 2px solid white;
+		color: white;
 
-			cursor: pointer;
+		-webkit-transition: background-color .5s, border .5s ease-in,
+		color .5s;
+		transition: background-color .5s, color .5s, border .5s ease-in;
 
-			p, h1, h2, h3, h4, h5{
-				top: 23%;
-				transform: rotate(-15deg) skew(-15deg, 0);
-				text-align: center;
-				margin: 0;
-				position: relative;
-				border-top: 2px solid black;
-				border-bottom: 2px solid black;
-				padding: 0;
-				padding-bottom: 5px;
-				font-size: 25pt;
-				-webkit-transition: background-color .5s ease-in,
-				color .5s;
-				transition: background-color .5s, color .5s ease-in;
-			}
+		cursor: pointer;
 
-			&:hover {
-				background-color: white;
-				border: 2px solid $primColor;
-				h1 {
-					color: $primColor;
-					
-				}
-			}
-		}
-
-		.secText{
-			font-size: 30px;
-			font-style: bold;
-			top: -23px;
-			position: relative;
-			z-index: 2;
-			margin: 0;
-			margin-bottom: 5px;
-
-		}
-
-		.secOption {
-			line-height: 0px;
-			position: relative;
-			top: -10px;
-			border-top: 2px solid $secColor;
-			border-bottom: 2px solid $secColor;
-			font-size: 22pt;
-			color: black;
+		p, h1, h2, h3, h4, h5{
+			transform: rotate(-15deg) skew(-15deg, 0);
 			text-align: center;
-			padding-left: 5px;
-			cursor: pointer;
 			margin: 0;
-
-			-webkit-transition: background-color .5s, border .5s ease-in,
+			position: relative;
+			border-top: 2px solid black;
+			border-bottom: 2px solid black;
+			padding: 0;
+			-webkit-transition: background-color .5s ease-in,
 			color .5s;
-			transition: background-color .5s, color .5s, border .5s ease-in;
+			transition: background-color .5s, color .5s ease-in;
+			a {
+			text-decoration: none;
+		}
 
-			&:hover {
-				color: $primColor;
-				border-top-color: white;
-				border-bottom-color: white;
+		}
+
+		&:hover {
+			background-color: white;
+			border: 2px solid $primColor;
+			h1 {
+				color: $primColor;	
 			}
 		}
 	}
-
-	&.opt-btn-single{
-		.button {
-			width: 150px;
-			height: 150px;
-			border-radius: 75px;
-			background-color: $primColor;
-			margin: 0 auto;
-			margin-top: 5px;
-			position: relative;
-			z-index: 1;
-			border: 2px solid white;
-			color: white;
-
-			-webkit-transition: background-color .5s, border .5s ease-in,
-			color .5s;
-			transition: background-color .5s, color .5s, border .5s ease-in;
-
-			cursor: pointer;
-			
-
-			p, h1, h2, h3, h4, h5{
-				top: 30%;
-				transform: rotate(-15deg) skew(-15deg, 0);
-				text-align: center;
-				margin: 0;
-				position: relative;
-				border-top: 2px solid black;
-				border-bottom: 2px solid black;
-				padding: 0;
-				font-size: 30pt;
-				-webkit-transition: background-color .5s ease-in,
-				color .5s;
-				transition: background-color .5s, color .5s ease-in;
-			}
-
-			&:hover {
-				background-color: white;
-				border: 2px solid $primColor;
-				h1 {
-					color: $primColor;	
-				}
-			}
-		}
-
-		.secText{
-			font-size: 30px;
+	.secText{
+			font-size: 2.50em;
 			top: -23px;
 			position: relative;
 			z-index: 2;
 			margin: 0;
 			margin-bottom: 5px;
-
 		}
-
-		.secOption {
+	.secOption {
 			line-height: 0px;
 			position: relative;
 			top: -10px;
 			border-top: 2px solid $secColor;
 			border-bottom: 2px solid $secColor;
-			font-size: 30pt;
-			//letter-spacing: 10px;
 			text-align: center;
 			padding-left: 5px;
 			cursor: pointer;
 			margin: 0;
+			color: black;
+
 
 			-webkit-transition: background-color .5s, border .5s ease-in,
 			color .5s;
@@ -174,7 +76,27 @@
 				border-top-color: white;
 				border-bottom-color: white;
 			}
+		}
+	&.single {
+		p, h1, h2, h3, h4, h5{
+			top: 30%;	
+			font-size: 2.5em;		
+		}
+		.secOption {
+			
+			font-size: 2.5em;
+			//letter-spacing: 10px;
+		}
+	}
+	&.dual {
+		p, h1, h2, h3, h4, h5{
+			top: 23%;
+			font-size: 2.09em;
+		}
+
+		.secOption {
+			font-size: 1.84em;
 		}
 	}
 }
-	
+

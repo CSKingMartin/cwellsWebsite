@@ -101,6 +101,21 @@ body {
 	}
 }
 
+.smallCard{
+
+	height: 220px;
+	width: 180px;
+	border: 2px solid $secColor;
+	background-color: $backColor;
+	position: relative;
+	margin: 10%;
+
+	p, h1, h2, h3, h4, h5 {
+	text-align: center;
+	//margin: 0 auto;
+	}
+}
+
 
 
 @media screen and (max-width:1024px) {

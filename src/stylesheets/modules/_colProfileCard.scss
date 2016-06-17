@@ -65,7 +65,7 @@
 		}
 	}
 	.cardContent {
-		overflow: hidden;
+		overflow-y: auto;
 		margin-top: 80px;
 		height: 320px;
 		border-top: 2px solid $secColor;

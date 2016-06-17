@@ -2,17 +2,14 @@
 	padding: 0px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	//height: 90%;
 	width: 280px;
 	text-align: center;
 	background-color: white;
 	border-bottom: 2px solid $secColor;
-
 	p, h1, h2, h3, h4, h5 {
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-
 	.hoverButton {
 		height: 60px;
 		width: 40px;
@@ -34,15 +31,11 @@
 				padding-left: 5px;
 			}
 		}
-
 		&:focus {
 			outline: 0;
 		}
 	}
 }
-
-
-
 //area that triggers the hover buttons. non-visible
 .imageWrapper {
 
@@ -62,7 +55,6 @@
 		opacity: 1;
 	}
 }
-
 //image itself, circular portrait
 .profileImage {
 	width: 175px;
@@ -79,7 +71,6 @@
 		max-height: 175px;
 	}
 }
-
 //arrows -- why is this a separate class from hover buttons? does it need to be?
 .selectArrow {
 	height: 60px;
@@ -88,18 +79,13 @@
 	background-color: white;
 	border: none;
 	opacity: 0;
-
 	img {
 		height: 60px;
 		width: 40px;
 	}
-
-
-
 	&.right {
 		float: right;
 	}
-
 	&.left {
 		float: left;
 	}

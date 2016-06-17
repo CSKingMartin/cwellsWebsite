@@ -3,11 +3,11 @@
 {% block content %}
 	
 <div class="sidebar">
-	{% import '_profileCard.html' as profileCard %}
+	{% import 'modules/_profileCard.html' as profileCard %}
 
 	{{profileCard.makeProfile('Conner Wells', './images/meImages/cwells1.png', 'an intern at', '', './images/icons/cdx-logo.png')}}
 
-	{% include 'modules/_findMeWidget.html' %}
+	{% include '_findMeWidget.html' %}
 	
 	<p>Conner Wells is a to-be Senior attending Linfield College in McMinnvile, OR. He's pursuing a degree in Computer Science, and interning at Connective DX in Portland, OR for the Summer of 2016.</p>
 
@@ -30,8 +30,8 @@
 	<div class ="menuContent">
 		<ul>
 			<li>
-				<div class="smallCard opt-btn-dual">
-					<a href="./news.html">
+				<div class="smallCard">
+					<div class="opt-btn dual"><a href="./news.html">
 						<div class="button">	
 							<h1>Read a Blog!</h1>
 						</div>
@@ -41,6 +41,7 @@
 					<a href="./about.html">
 						<h1 class="secOption">Learn more!</h1>
 					</a>
+					</div>
 				</div>
 			</li>
 			

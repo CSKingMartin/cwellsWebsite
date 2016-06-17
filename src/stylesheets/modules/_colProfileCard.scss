@@ -61,8 +61,6 @@
 				line-height: 23px;
 				padding-right: 15px;
 			}
-		
-	
 		}
 	}
 	.cardContent {
@@ -81,14 +79,14 @@
 			float: left;
 			border-right: 1px solid $secColor;
 			margin: 0 auto;
-			padding: 20px;
+			//padding: 20px;
 			box-sizing: border-box;
 		}
 		.rightCardContent {
 			overflow: hidden;
 			width: 50%;
 			height: 100%;
-			padding: 20px;
+			//padding: 20px;
 			float: right;
 			border-left: 1px solid $secColor;
 			margin: 0 auto;

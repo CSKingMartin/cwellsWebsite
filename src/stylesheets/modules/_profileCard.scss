@@ -1,0 +1,109 @@
+.profileCard {
+	padding: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	//height: 90%;
+	width: 280px;
+	text-align: center;
+	background-color: white;
+	border-bottom: 2px solid $secColor;
+
+	p, h1, h2, h3, h4, h5 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.hoverButton {
+		height: 60px;
+		width: 40px;
+
+		opacity: 0;
+		-webkit-transition: visibility 2s, opacity .5s linear;
+		transition: visibility 2s, opacity .5s linear;
+		padding: 0;
+		top: 50%;
+		margin-top: -25px;
+
+		&.selectArrow {
+			&.right {
+				right: 0;
+				padding-right: 5px;
+			}
+			&.left {
+				left: 0;
+				padding-left: 5px;
+			}
+		}
+
+		&:focus {
+			outline: 0;
+		}
+	}
+}
+
+
+
+//area that triggers the hover buttons. non-visible
+.imageWrapper {
+
+	height: 170px;
+	width: auto;
+	margin-bottom: 0;
+
+	border-radius: 60px;
+
+	//overflow: hidden;
+
+	position: relative;
+	
+
+	&:hover .hoverButton {
+		//visibility: visible;
+		opacity: 1;
+	}
+}
+
+//image itself, circular portrait
+.profileImage {
+	width: 175px;
+	height: 175px;
+	margin: 0 auto;
+	border-radius: 90px;
+	border: 2px solid $backColor;
+	background-color: white;
+	position: center;
+	//display: inline;
+	img{
+		border-radius: 90px;
+		max-width: 175px;
+		max-height: 175px;
+	}
+}
+
+//arrows -- why is this a separate class from hover buttons? does it need to be?
+.selectArrow {
+	height: 60px;
+	width: 40px;
+	position: absolute;
+	background-color: white;
+	border: none;
+	opacity: 0;
+
+	img {
+		height: 60px;
+		width: 40px;
+	}
+
+
+
+	&.right {
+		float: right;
+	}
+
+	&.left {
+		float: left;
+	}
+}
+
+
+

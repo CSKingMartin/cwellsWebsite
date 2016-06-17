@@ -35,15 +35,17 @@ ul.navbar {
 	}
 }
 
-@media screen and (max-width:680px) {
+@media screen and (max-width:1024px) {
 	ul.navbar {
 	float: center;
 
 		li {
 			width: 50%;
+
 			a {
 				width: auto;
 				display: block;
+				
 			}
 		}
 	}

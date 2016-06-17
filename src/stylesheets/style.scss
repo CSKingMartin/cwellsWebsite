@@ -8,14 +8,15 @@ $navfootHeight: 30px;
 "partials/navbar",
 "partials/footer",
 "modules/opt-btn",
-"modules/fullProfileCard",
+"modules/profileCard",
 "modules/colProfileCard",
-"modules/clear-btn";
+"modules/clear-btn",
+"modules/findMeWidget";
 
 
 body {
 	height: 100%;
-	font-size: 100%;
+	font-size: 1em;
 	font-family: $font;
 	position: relative;
 	background-color: $backColor;
@@ -27,7 +28,6 @@ body {
 	margin: 0 auto; //this is centering the div class
 	position: relative;
 
-	//border: 2px solid blue;
 }
 
 .headBox {
@@ -78,11 +78,27 @@ body {
 				width: 40%;			
 			}
 		}
+	}	
+}
+
+.sidebar {
+	float: left;
+	display: inline-block;
+	height: auto;
+	width: 280px;
+	background-color: white;
+	border: 2px solid $secColor;
+	padding: 0px;
+	margin: 10px;
+	
+
+	text-align: center;
+
+	//condenses the text in the sidebar. 
+	p, h1, h2, h3, h4 {
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
-
-	
-
-	
 }
 
 
@@ -90,5 +106,8 @@ body {
 @media screen and (max-width:1024px) {
 	.menu {
 		margin-left: 10px;
+	}
+	.sidebar {
+		display: none;
 	}
 }

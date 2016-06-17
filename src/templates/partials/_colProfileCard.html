@@ -12,33 +12,12 @@
 
 	<div class ="cardContent">
 
-	
+	 		{% import '_profileCard.html' as profileCard %}
 
-		<div class="leftCardContent">
+			{{profileCard.makeProfile('', './images/meImages/cwells1.png', '', '')}}
 
-	 	<div class="imageWrapper">
+			{% include 'modules/_findMeWidget.html' %}
 
-			<button id="left" class="hoverButton selectArrow left">
-			</button>
-
-			<div class="profileImage">
-				<img id="pimg" src="./images/meImages/cwells1.png"/>
-
-			</div>
-
-			<button id="right" class="hoverButton selectArrow right">
-			</button>
-
-		</div>
-
-
-		<script src="./js/profileImg.js"></script>
-
-		</div>
-
-		<div class="rightCardContent">
-			<p>World</p>
-		</div>
 	</div>
 
 	<script src="./js/expandCard.js"></script>

@@ -1,0 +1,29 @@
+{% macro makeProfile(name, img, sub1, sub2, logo) %}
+
+<div class="profileCard">
+
+	<div class="imageWrapper">
+
+		<button id="left" class="hoverButton selectArrow left">
+			<img src="./images/icons/arr-left.png">
+		</button>
+
+		<div class="profileImage">
+			<img id="pimg" src={{ img }}>
+
+		</div>
+
+		<button id="right" class="hoverButton selectArrow right">
+			<img src="./images/icons/arr-right.png">
+		</button>
+
+	</div>
+
+	<h2>{{ name }}</h2>
+	<p>{{ sub1 }}</p>
+	<a href="https://www.connectivedx.com"><img src={{ logo }}></a>
+
+	<script src="./js/profileImg.js"></script>
+</div>
+
+{% endmacro %}

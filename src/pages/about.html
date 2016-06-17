@@ -2,14 +2,12 @@
 
 {% block content %}
 
-	<div class="row">
-		<div class="col-xl-12">
-			<div id="content">
-				<h1>Hello!</h1>
-				<p>This site is being used to test my Web Framework that I'm creating for myself in order to learn about Front End Development. It may not look like much on the surface, but understanding how to use the tools I have available is going to be a key part to streamlining the learning process in creating relevant content. 
-				</p>
-			</div>
-		</div>
+	<div class="sidebar">
+
+	{% import '_profileCard.html' as profileCard %}
+
+	{{profileCard.makeProfile('Conner Wells', './images/meImages/cwells1.png', 'an intern at', '')}}
+
 	</div>
 
 {% endblock %}

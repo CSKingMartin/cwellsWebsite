@@ -1,0 +1,47 @@
+<h1>The Pitfalls of Templating and Nunjucks</h1>
+<h3>June 17, 2016</h3>
+
+Hey all. This post is more on the technical side -- I'm going to have a two-part post about templating and Nunjucks. This one focuses on the easy mistakes, and the next post will show some examples and things I've learned with my own site. The resource I used to learn most of what I use here are a combination of two places:
+
+https://mozilla.github.io/nunjucks/
+
+http://zellwk.com/blog/nunjucks-with-gulp/
+
+The first link is the API for Nunjucks hosted by Mozilla. Everything about Nunjucks for the most part is documented there, but Mozilla admits they have holes in the documentation and what they miss is covered by documentation for Jinja2 ("go-go-gadget Google").
+
+The second link is to a tutorial that shows a lot of Nunjucks examples and includes compatibility with Gulp (a very very good thing).
+
+This recaps and gives a bit more instructive advice on applying templating and Nunjucks than what the previous two articles give.
+<h2>What is Templating?</h2>
+For those who want to just read my article, or are reading for fun, we'll cover all of our bases first. Templating, is being able to write sections of HTML that are reusable. Whatever you ship to a server to be hosted has to be raw HTML code. But alot of the pieces developers write for their websites can be reused in many places, and it's a mondo bummer to have to rewrite miles and miles of code for that final product. Enter -- templating.
+
+With this handy dandy tool we can write the code to make that navigation bar ONCE, or that footer ONCE, and we can have it show up on every page on our site. Instead of copy-pasting it over and over again, we can save ourselves some time by having a base template that every page uses with a navbar and footer, and then build the unique parts that matter.
+<h2>Can I (You) Use Templating?</h2>
+Short answer -- yes if you have the tools. Part of my Web Framework that I've built allows me to use Nunjucks, which is a templating language. I run tasks through Gulp which converts the templates to raw HTML. There are several templating languages available in conjunction with Gulp, Grunt, etc. many of which are more popular than Nunjucks. Nunjucks is an offset of Jinja2, and the API is irritatingly split between two sources. That being said, and having had some experience with Nunjucks, I would recommend picking up a different language like Mustache, Handlebars or Jade. But for those who are committed and confused I'll explain how to properly use templating with Nunjucks as the language for my examples in the next post.
+<h2>The Pitfalls</h2>
+The end-all-be-all here is that templating is very nice. It's convenient, it promotes building your side in a modular fashion, which makes it easily organised, DRY, and readable by others fairly easily. Once you get a handle on the exact syntax of the language that you're using, templating isn't hard for the most part to understand and implement.
+<h3>HOWEVER</h3>
+The learning curve of what you can and can't do ratchets up over time. When you start doing more and more complex things with dynamic sites, templating gets a little hairy. For my site I've been building, and for this example, the templating I use are for static sites, and do all the rendering during the build stage.
+
+As previously mentioned, Nunjucks has a few kinks that can make it a difficult language to pick up. It's documented between two sources, and is fairly new so there's not a lot of examples floating around for observation.
+
+Templating can get easy -- easy to the point where you want to try and use it anywhere you can. This is trivial and it's separating your code to the point where parts of it are hard to find. Sometimes separation is helpful, but think about whether or not the partial -- that is the separated piece -- is going to be used more than once. If it's not, why did you separate it? It's no more semantic than keeping it in the .html where it belonged.
+
+(also, templating is not recognised as a word by the dictionary on Windows.)
+<h2>My Successes</h2>
+In the second part of this post I'll show some specific examples on what I've done in my site using templating. Application of the examples in both are sometimes hard to visualize and think about.
+
+Disclaimer -- this subsequent post might not be up today, 6/17.
+
+Until next time
+
+&nbsp;
+
+--end
+
+<br><br><br><br>
+
+
+<h2>This blog currently doesn't have infrastructure for comments!</h2>
+<p>Feel free to 
+<!-- <a href="#">contact</a> me directly, or  -->visit my <a href = "https://cscwells.wordpress.com/2016/06/17/the-pitfalls-of-templating/">Wordpress Blog</a> to leave a comment about this article.</p>

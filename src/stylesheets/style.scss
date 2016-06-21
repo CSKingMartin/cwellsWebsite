@@ -18,15 +18,15 @@ body {
 	height: 100%;
 	font-size: 1em;
 	font-family: $font;
-	position: relative;
+	//position: relative;
 	background-color: $backColor;
 }
 
 #pageWrap {
-	max-width: 1300px;
 	height: 100%;
-	margin: 0 auto; //this is centering the div class
-	position: relative;
+	margin: auto; //this is centering the div class
+	width: 100%;
+	display: inline-block;
 
 }
 
@@ -34,7 +34,6 @@ body {
 	height: 60px;
 	margin-top: 0;
 	padding:0;
-	width: 100%;
 	background-color: $primColor;
 	p{
 		margin: 0 auto;
@@ -44,27 +43,54 @@ body {
 }
 
 .menu {
+	//vertical-align: top;
 	margin: 10px;
 	padding: 20px;
 	margin-left: 300px;
 	width: auto;
-	border: 2px solid $secColor;
-	min-height: 650px;
+	//border: 2px solid $secColor;
+	background-opacity: .9;
 	background-color: white;
 	box-sizing: border-box;
 	position: relative;
+	overflow: auto;
 
-	.menuHeader {
-		margin: 20px;
-		p{
-			//text-align: center;
-			font-size: 14pt;
-		}
+.menuHeader {
+	margin: 40px;
+
+	p{
+		font-size: 14pt;
 	}
+}
+.body {
+	margin: 40px;
+}
 
 	.menuContent {
+		display: inline-block;
 		margin: 20px;
-		position: relative;
+		margin-right: -245px;
+		float: left;
+		width: 100%;
+
+		.menuHeader {
+			margin: 20px;
+			margin-right: 245px;
+
+		
+		}
+		.body {
+			margin: 20px;
+			margin-right: 245px;
+		}
+	}
+		.smallCard {
+			float: left;
+			p {
+				margin-right: 0px;
+			}
+		}
+		
 
 		ul {
 			padding: 20px;
@@ -78,8 +104,33 @@ body {
 				width: 40%;			
 			}
 		}
-	}	
-}
+
+		&.right {
+			float: right;
+			text-align: right;
+		}
+	&.noSidebar {
+		margin-left: 10px;
+	}
+
+	&.right {
+		text-align: right;
+		.menuContent {
+			margin-left: -245px;
+			float: right;
+			margin-right: 20px;
+		}
+		.menuHeader {
+			margin-right: 20px;
+			margin-left: 245px;
+		}
+		.body {
+			margin-right: 20px;
+			margin-left: 245px;
+		}
+	}
+}	
+
 
 .sidebar {
 	float: left;
@@ -103,16 +154,19 @@ body {
 
 .smallCard{
 
-	height: 220px;
+	//height: 245px;
 	width: 180px;
 	border: 2px solid $secColor;
 	background-color: $backColor;
 	position: relative;
-	margin: 10%;
+	margin: 20px;
+	
+	float: left;
 
 	p, h1, h2, h3, h4, h5 {
 	text-align: center;
-	//margin: 0 auto;
+	margin: 0;
+	
 	}
 }
 

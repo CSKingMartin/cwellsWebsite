@@ -93,17 +93,21 @@ gulp.task('moveImages', function() {
 	.pipe(gulp.dest('dist/images'));
 });
 
-
-gulp.task('renderArticles', function() {
-	return gulp.src('./src/articles/*')
-	.pipe(data(function() {
-			return require('./data.json')
-		}))
-	.pipe(nunjucksRender({
-		path: ['src/articles/']
-	}))
-	.pipe(gulp.dest('dist/articles'))
+gulp.task('moveArticles', function() {
+	gulp.src('./src/articles/**/*')
+	.pipe(gulp.dest('dist/articles'));
 });
+
+// gulp.task('renderArticles', function() {
+// 	return gulp.src('./src/articles/*')
+// 	.pipe(data(function() {
+// 			return require('./data.json')
+// 		}))
+// 	.pipe(nunjucksRender({
+// 		path: ['src/articles/']
+// 	}))
+// 	.pipe(gulp.dest('dist/articles'))
+// });
 
 
 
@@ -117,7 +121,7 @@ gulp.task('clean', function() {
 //default task
 gulp.task('default', function(done) {
 	//default task compiles for dev
-	sequence('nunjucks', 'styles', 'renderArticles', 'java', 'moveImages', done);
+	sequence('nunjucks', 'styles', 'java', 'moveImages', 'moveArticles', done);
 });
 
 gulp.task('build', function(done) {

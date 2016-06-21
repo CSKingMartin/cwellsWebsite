@@ -47,23 +47,24 @@
 		}
 	}
 	.secText{
-			font-size: 2.50em;
-			top: -23px;
+			font-size: 2.25em;
+			top: -25px;
 			position: relative;
 			z-index: 2;
 			margin: 0;
-			margin-bottom: 5px;
+			margin-bottom: 0px;
 		}
 	.secOption {
 			line-height: 0px;
 			position: relative;
-			top: -10px;
+			top: -15px;
 			border-top: 2px solid $secColor;
 			border-bottom: 2px solid $secColor;
 			text-align: center;
 			padding-left: 5px;
 			cursor: pointer;
 			margin: 0;
+			margin-bottom: 10px;
 			color: black;
 
 
@@ -78,10 +79,17 @@
 			}
 		}
 	&.single {
-		p, h1, h2, h3, h4, h5{
-			top: 30%;	
-			font-size: 2.5em;		
+		.button {
+			h1{
+				top: 30%;	
+				font-size: 2.5em;		
+			}
 		}
+
+		.secText {
+			top: -50px;
+		}
+		
 		.secOption {
 			
 			font-size: 2.5em;
@@ -89,10 +97,13 @@
 		}
 	}
 	&.dual {
-		p, h1, h2, h3, h4, h5{
-			top: 23%;
-			font-size: 2.09em;
+		.button {
+			h1{
+				top: 23%;
+				font-size: 2.09em;
+			}
 		}
+		
 
 		.secOption {
 			font-size: 1.84em;

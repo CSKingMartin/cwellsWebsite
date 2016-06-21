@@ -1,0 +1,87 @@
+<h1>How to Template Successfully (Nunjucks/Gulp)</h1>
+<h3>June 21, 2016</h3>
+
+<h2>As promised, here's a late post about templating:</h2>
+I discussed last time (<a href="https://cscwells.wordpress.com/2016/06/17/the-pitfalls-of-templating/">here</a>) about how templating got me into trouble. To complement that here, let's talk a little bit about the successes I have.
+<h2>Note:</h2>
+A lot of the functionality of Nunjucks, the language I'm using, are common among other templating languages. This could also be a very good springboard to inspire ideas within other templating languages.
+<h2>Extends</h2>
+My best current example of templating I've made can be found <a href="//cskingmartin.github.io/cwellsWebsite/news.html">here</a>. If you inspect any of the HTML on that page, you'll notice that you don't see any of the templating I've referenced so far. Recall: the templating language is all compiled to raw HTML via Gulp.
+
+The very first part of templating that I used is the extends property of Nunjucks. What extends allows you to do, is have a common template or base that is inherited by any other page from that site. Here's a snippet of my pre-build code for the "news.html" page:
+<pre>{% extends "base.html" %}
+
+{% block content %}
+
+&lt;div class="sidebar"&gt;
+ 
+...code for page here...
+
+{% endblock %}</pre>
+When this page is compiled, the code unique to news.html is attached to the base.html, which looks like this:
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+ &lt;meta charset="utf-8"&gt;
+ &lt;title&gt;Conner's Gulp and Nunjucks Test&lt;/title&gt;
+ &lt;link rel="stylesheet" href="style.min.css"&gt;
+ <a href="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js</a>
+ &lt;link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;div id="pageWrap"&gt;
+ {% include "_banner.html" ignore missing %}
+
+ {% include "_navbar.html" ignore missing %}
+
+ {% block content %}
+ ...code here...
+ {% endblock %}</pre>
+Notice that all of the usual bits that start an HTML page are there -- the head and body classes. I also have a few partials -- the navbar.html and banner.html. These are also tacked onto the base just like the block content from news.html.
+
+Where the {% block content %} begins on the base is where things start getting different depending on the page. But everything on the base is common on all pages -- the head, the banner, and the navbar (even a footer at the very bottom!).
+
+It's not hard to see how much time this saves when writing your pages. You don't even have to grace your development process with tedious copy, paste, close divs routine.
+<h2>Loops</h2>
+Here's where templating really gets fun. Being able to treat your development process like writing object-oriented code makes me so happy.
+
+The sidebar on my news page was going to have a button for each Article that I had posted, since I'm trying to move the Wordpress hosting permanently over to my GitHub pages site. This meant that the list was going to get longer and longer. That, combined with the fact that my sidebar collapsed meant I would have to copy/paste a new button every time I had a new article in TWO places.
+
+Wouldn't it be nice if I could just iterate through each article and make a button for it....?
+
+Yes, and it's possible as well:
+<pre>{% for article in articles %}
+ 
+&lt;button class="clear-btn" aValue = "{{article.index}}"&gt;
+
+    {{article.title}}
+
+    &lt;p class= "subText"&gt;{{article.postDate}}&lt;/p&gt;
+
+&lt;/button&gt;
+
+{% endfor %}</pre>
+This piece of code is exactly what it looks like. It's a for loop that loops over data that I have stored in a .json file. The .json file looks like this:
+<pre>{"articles":[
+ {"title":"Connective DX, Day One", "index":"1", "postDate":"June 1, 2016"},
+ {"title":"Connective DX, Day Two", "index":"2", "postDate":"June 2, 2016"},
+ {"title":"Organization (Days Three and Four)", "index":"3", "postDate":"June 5, 2016"},
+ {"title":"For lack of a better title -- Week 2", "index":"4", "postDate":"June 14, 2016"},
+ {"title":"Static vs. Dynamic Sites", "index":"5", "postDate":"June 15, 2016"},
+ {"title":"The Pitfalls of Templating and Nunjucks", "index":"6", "postDate":"June 17, 2016"}
+ ]}</pre>
+(A .json file is a JavaScript Object Notation file, they're pretty commonly used. )
+
+Another great part about the Nunjucks code is that it reads extremely smoothly. "For every Article in the Articles array, do this." We're also able to reference specific attributes from the array with the Nunjucks formattings: {{articles.&lt;attribute name here&gt;}}.
+
+This consolidates data in one place so it can be referenced in many places instead of rewritten over and over again.
+<h2>More...?</h2>
+I've also had a good success with using Macros, but I think I'll save that for a later date before this post gets too long. (I'm lazy).
+
+I'd like to intermix some of the more technical stuff with content more near and dear to my heart, so I thin there will be a buffer post in between, but you can expect a macros example or two by the end of the week.
+
+Until next time...
+
+&nbsp;
+
+--end

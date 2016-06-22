@@ -1,19 +1,24 @@
 //part of the "find me on" bit
 .findmeCard {
 	width: 280px;
-	//height: 80px;
+	height: 80px;
 	text-align: center;
-	margin: auto;
-	float: left;
+	margin: 0 auto;
+	//border: 2px solid $secColor;
+
+	p{
+		margin-bottom: 0;
+	}
 }
 
 ul.logo {
 	list-style-type: none;
-	//display: inline-block;
-	//margin: auto;
+
 	padding: 0;
 	margin-top: 3px;
-	width: auto;
+	width: 280px;
+
+	float: none;
 
 	height: 30px;
 	
@@ -24,7 +29,7 @@ ul.logo {
 		border-right: solid black 1px;
 		margin: 0;
 		display: inline-block;
-
+		float: none;
 		&.first {
 			margin-left: auto;
 		}

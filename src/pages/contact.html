@@ -1,41 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<div class="sidebar">
-	{% import 'modules/_profileCard.html' as profileCard %}
-
-	{{profileCard.makeProfile('Conner Wells', './images/meImages/cwells1.png', 'an intern at', '', './images/icons/cdx-logo.png')}}
-
-	{% include '_findMeWidget.html' %}
 	
-	<p>Conner Wells is a to-be Senior attending Linfield College in McMinnvile, OR. He's pursuing a degree in Computer Science, and interning at Connective DX in Portland, OR for the Summer of 2016.</p>
 
-</div>	
+<div class="menu noSidebar">
 
-	{% include "_expMenu-profile.html" ignore missing %}	
+	<div class="menuContent" style="margin-left: -550px;">
 
-<div class="menu">
+		<div class="contactBlurb">
 
-	<div class="menuHeader">
-		<h1>Houston: We have contact!</h1>
+			<h1>Houston: We have contact!</h1>
+
+
+			<p>Want to contact me? Please feel free to fill out the form and send me a message!</p>
+			<br>
+			<p>Feel free to also find me at any of the sites below:</p>
+
+			{% include "_findMeWidget.html" ignore missing %}
+
+		</div>
+		
 	</div>
 
-	<div class="body">
+		<div class="contactForm">
 
-		<form action="https://formspree.io/cwells@linfield.edu"
-		      method="POST">
-		    <p>What is your name?</p><input type="text" name="name">
-		    <br>
-		    <p>Where should I email back?</p><input type="email" name="_replyto">
-		    <br>
-		    <p>Message content:</p><textarea name="body"></textarea>
-		    <br>
-		    <input type="submit" value="Send">
-		    <input type="hidden" name="_next" value="http://cskingmartin.github.io/cwellsWebsite/contact.html">
-		</form>
 
-	</div>
+			<form action="https://formspree.io/cwells@linfield.edu"
+			      method="POST">
+			    <p>What is your name?</p><input type="text" name="name">
+			    <br>
+			    <p>Where should I email back?</p><input type="email" name="_replyto">
+			    <br>
+			    <p>Message content:</p><textarea name="body"></textarea>
+			    <br>
+			    <input type="submit" value="Send">
+			    <input type="hidden" name="_next" value="http://cskingmartin.github.io/cwellsWebsite/contact.html">
+			</form>
+
+		</div>
+	
 
 </div>
 

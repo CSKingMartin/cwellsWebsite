@@ -11,7 +11,9 @@ $navfootHeight: 30px;
 "modules/profileCard",
 "modules/colProfileCard",
 "modules/clear-btn",
-"modules/findMeWidget";
+"modules/findMeWidget",
+"modules/pageBanner",
+"modules/contactCard";;
 
 
 body {
@@ -42,6 +44,14 @@ body {
 	}
 }
 
+.imgFilter {
+	height: 100%;
+	width: 100%;
+	background-color: $primColor;
+	opacity: .4;
+
+}
+
 .menu {
 	//vertical-align: top;
 	margin: 10px;
@@ -55,16 +65,16 @@ body {
 	position: relative;
 	overflow: auto;
 
-.menuHeader {
+	.menuHeader {
 	margin: 40px;
 
 	p{
 		font-size: 14pt;
 	}
-}
-.body {
+	}
+	.body {
 	margin: 40px;
-}
+	}
 
 	.menuContent {
 		display: inline-block;
@@ -88,20 +98,6 @@ body {
 			float: left;
 			p {
 				margin-right: 0px;
-			}
-		}
-		
-
-		ul {
-			padding: 20px;
-			list-style: none;
-			display: inline;
-			width: 100%;
-
-			li {
-				float: left;
-				margin: 20px;
-				width: 40%;			
 			}
 		}
 

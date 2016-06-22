@@ -5,6 +5,7 @@
 	padding: 20px;
 	display: inline-block;
 	margin-left: 550px;
+	float: left;
 
 	.findmeCard {
 		position: relative;
@@ -13,8 +14,6 @@
 	}
 }
 .contactForm{
-	float: left;
-	box-sizing: border-box;
 	height: 100%;
 	//display: inline-block;
 	margin-left: 550px;
@@ -25,10 +24,12 @@
 		width: 100%;
 		input[type=text], input[type=email] {
 			width: 100%;
+			max-width: 770px;
 		}
 		textarea {
 			height: 100px;
-			width: 100%
+			width: 100%;
+			max-width: 765px;
 		}
 	}
 	

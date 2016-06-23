@@ -1,0 +1,18 @@
+{% macro makeButton(class, topText, opt1, opt1link, opt2, opt2link) %}
+<div class="smallCard">
+	<h3>{{ topText }}</h3>
+
+	<div class="opt-btn {{ class }}"><a href="{{ opt1link }}">
+		<div class="button">	
+			<h1>{{ opt1 }}</h1>
+		</div></a>
+
+		<p class="secText">OR</p>
+
+		<a href="{{ opt2link }}">
+			<h1 class="secOption">{{ opt2 }}</h1>
+		</a>
+	</div>
+					
+</div>
+{% endmacro %}

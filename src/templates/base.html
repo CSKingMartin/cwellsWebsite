@@ -11,27 +11,24 @@
 
 <body>
 
-<div id="pageWrap">
+	<div id="pageWrap">
 
-<!-- {% include "_banner.html" ignore missing %} -->
+		{% include "_navbar.html" ignore missing %}
 
-{% include "_navbar.html" ignore missing %}
+			{% block content %} 
 
+			{% endblock %}
 
-
-	{% block content %} 
-
-	{% endblock %}
-
-<script id="dsq-count-scr" src="//cwellswebsite.disqus.com/count.js" async></script>
-
-
-
-</div>
-
+		<!-- <script id="dsq-count-scr" src="//cwellswebsite.disqus.com/count.js" async></script> -->
+	</div>
 
 </body>
-{% include "_footer.html" ignore missing %}
+
+<footer>
+
+	Copyright &copy Conner Wells, 2016. All rights reserved.
+	
+</footer>
 
 
 </html>

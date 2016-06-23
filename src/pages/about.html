@@ -30,21 +30,13 @@
 </div>
 
 <div class="menu leftIndent noSidebar">
-	<div class="smallCard">
-	<h3>Visit</h3>
-		<div class="opt-btn dual"><a href="https://www.linfield.edu">
-			<div class="button">	
-				<h1>Linfield College</h1>
-			</div>
-			</a>
-			<p class="secText">OR</p>
+	
 
-			<a href="https://www.connectivedx.com">
-				<h1 class="secOption" style="font-size: 1.5em">Connective DX</h1>
-			</a>
-		</div>
- 
-	</div>
+		{% import 'macros/_optbutton.html' as optButton %}
+
+		{{optButton.makeButton('dual', 'Visit', 'Linfield College', 'https://www.linfield.edu', 'Connective DX', 'https://www.connectivedx.com')}}
+
+
 	<div class="menuContent">
 
 		<div class="menuHeader">
@@ -77,21 +69,8 @@
 
 		</div>
 
-				<div class="smallCard">
-					<h3>Interested? See my</h3>
-					<div class="opt-btn single"><a href="https://github.com/cskingmartin">
-						<div class="button">	
-							<h1>Github</h1>
-						</div>
-						</a>
-						<p class="secText">OR</p>
+		{{optButton.makeButton('single', 'Interested? See my', 'Github', 'https://github.com/CSKingMartin', 'LinkedIn', 'https://www.linkedin.com/in/conner-wells-924a83113')}}
 
-						<a href="https://www.linkedin.com/in/conner-wells-924a83113">
-							<h1 class="secOption">LinkedIn</h1>
-						</a>
-					</div>
-					
-				</div>
 		
 </div>
 

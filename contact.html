@@ -11,15 +11,9 @@
 
 <body>
 
-<div id="pageWrap">
+	<div id="pageWrap">
 
-<!-- 
-
-<div id="banner"></div>
-
- -->
-
-
+		
 
 <ul class="navbar">
 	<li><a href="index.html">HOME</a></li>
@@ -30,14 +24,9 @@
 
 
 
-
-
+			
 	
-	
-
-<div class="menu noSidebar">
-
-	<div class="menuContent" style="margin-left: -550px;">
+<div class="contactCard">
 
 		<div class="contactBlurb">
 
@@ -46,58 +35,54 @@
 
 			<p>Want to contact me? Please feel free to fill out the form and send me a message!</p>
 			<br>
-			<p>Feel free to also find me at any of the sites below:</p>
+			<p>You can also find me at any of the sites below:</p>
 
 			
+
 <div class="findmeCard">
-<p>find me on:</p>
+	<p>find me on:</p>
 		<ul class="logo">
 			<li class="first"><a href="https://www.github.com/CSKingMartin"><img src="./images/icons/git-logo.png" class="logoImg"></a></li>
 			<li><a href="https://www.last.fm/user/CSKingMartin"><img src="./images/icons/lastfm-logo.png" class="logoImg"></a></li>
 			<li class="last"><a href="https://www.linkedin.com/in/conner-wells-924a83113"><img src="./images/icons/linkedin.png" class="logoImg"></a></li>
-</ul>
+		</ul>
 
 </div>
 
 
 
 		</div>
-		
-	</div>
 
 		<div class="contactForm">
 
+			<form action="https://formspree.io/cwells@linfield.edu" method="POST">
 
-			<form action="https://formspree.io/cwells@linfield.edu"
-			      method="POST">
-			    <p>What is your name?</p><input type="text" name="name">
-			    <br>
-			    <p>Where should I email back?</p><input type="email" name="_replyto">
-			    <br>
-			    <p>Message content:</p><textarea name="body"></textarea>
-			    <br>
+		    	<label for="name">What is your name?</label><input type="text" name="name" id="name">
+			   		<br>
+				<label for="email">What is your email address?</label><input type="email" name="_replyto" id="email">
+					<br>
+					<br>
+			    <label for="text">Message Content:</label><textarea name="body" id="text"></textarea>
+					<br>
 			    <input type="submit" value="Send">
 			    <input type="hidden" name="_next" value="http://cskingmartin.github.io/cwellsWebsite/contact.html">
+
 			</form>
-
 		</div>
-	
-
 </div>
 
 
 
-<script id="dsq-count-scr" src="//cwellswebsite.disqus.com/count.js" async></script>
+		<!-- <script id="dsq-count-scr" src="//cwellswebsite.disqus.com/count.js" async></script> -->
+	</div>
 
-</div>
 </body>
 
-<!-- 
-
 <footer>
+
 	Copyright &copy Conner Wells, 2016. All rights reserved.
+	
 </footer>
 
 
- -->
 </html>

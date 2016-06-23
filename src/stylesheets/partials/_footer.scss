@@ -1,9 +1,13 @@
 footer {
-	position: fixed;
-	height: $navfootHeight;
-	right: 0;
-	bottom: 0;
+
+	width: 100%;
+
+	position: absolute;
 	left: 0;
+	bottom: 0;
+	//padding: 20px 0;
+
+	height: 30px;
 	
 	background-color:$primColor;
     color:white;

@@ -1,14 +1,24 @@
-$(function() {
-    $(".clear-btn").click(function(){
-        var id = $(this).attr('aValue');
-        $.ajax({ url: './articles/article' + id + '.html',
+
+
+function loadArticle(index) {
+    $.ajax({ url: './articles/article' + index + '.html',
             success: function(str) {
-                //alert(str);
                 $("#mainContent").html(str);
             },
             error: function(err) {
                 alert("I'm sorry, that article doesn't exist!");
             }
         });
+
+}
+
+$(function() {
+    $(window).on('hashchange', function() {
+        var index = location.hash;
+        var i = index.slice(-1);
+        //alert(i);
+
+        loadArticle(i);
     });
 });
+

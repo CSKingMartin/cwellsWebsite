@@ -10,13 +10,14 @@
 
 	{% for article in articles %}
 	
-	<button class="clear-btn" aValue = "{{article.index}}">
+	<button class="clear-btn" aValue = "{{article.index}}" onclick="location.href='#article{{article.index}}'">
 
-		{{article.title}}
+			{{article.title}}
 
-		<p class= "subText">{{article.postDate}}</p>
+			<p class= "subText">{{article.postDate}}</p>
 
-	</button>
+		
+		</button>
 
 	{% endfor %}
 
@@ -34,13 +35,13 @@
 	<div class ="cardContent">
 
 		{% for article in articles %}
-	
-		<button class="clear-btn" aValue = "{{article.index}}">
+		<button class="clear-btn" aValue = "{{article.index}}" onclick="location.href='#article{{article.index}}'">
 
 			{{article.title}}
 
 			<p class= "subText">{{article.postDate}}</p>
 
+		
 		</button>
 
 		{% endfor %}

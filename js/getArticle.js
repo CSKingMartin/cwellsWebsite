@@ -1,1 +1,1 @@
-$(function(){$(".clear-btn").click(function(){var t=$(this).attr("aValue");$.ajax({url:"./articles/article"+t+".html",success:function(t){$("#mainContent").html(t)},error:function(t){alert("I'm sorry, that article doesn't exist!")}})})});
+function loadArticle(t){$.ajax({url:"./articles/article"+t+".html",success:function(t){$("#mainContent").html(t)},error:function(t){alert("I'm sorry, that article doesn't exist!")}})}$(function(){$(window).on("hashchange",function(){var t=location.hash,n=t.slice(-1);loadArticle(n)})});

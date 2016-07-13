@@ -1,0 +1,33 @@
+<h1>Toolboxes and Troubles</h1>
+<h3>July 13, 2016</h3>
+
+<h2>Finding Tools</h2>
+I've spent the last week designing and perfecting a gulp module that will resize images. After looking through several tools to fulfil our use cases for the next Connective DX Framework, we decided to build our own tool to provide a more accurate solution.
+<h2>Context:</h2>
+In making this Framework the team at Connective DX are compiling tools which make development easier. I experienced this a bit myself having messed with a few tools when I designed my site, and their process is very similar -- lots of Google searching and testing the newest tools and see if they easily solve your problems.
+
+There are goals within the new Framework which help guide which tools to choose -- specifically they want it to embody the idea of a "modular" framework. This is an offset of UNIX philosophy -- design small pieces code that are easy to maintain, readable, and does ONE thing well. This is the same ideology behind "the Gulp way."
+<h2>What I was told to do:</h2>
+The team needed a tool that could resize images easily for developing sites. Frequently, a page will need one image in different sizes for a site. Without a tool built into the build process a developer would have to use Photoshop or another program to resize each image to the 5 or so sizes needed (this is time consuming, hence our NEED for a solution).
+
+They had already looked in a few directions, but hadn't made a lot of headway. Some tools looked like they may have too much work involved, or just weren't the right fit for the use cases and Framework.
+<h2>ImageMagick/GraphicsMagick/Sharp</h2>
+The first two programs (see <a href="http://www.imagemagick.org/script/index.php">here</a> and <a href="http://www.graphicsmagick.org/">here</a>) for all intents and purposes of this post are the same thing. ImageMagick/GraphicsMagick were tossed around in the initial conversations and are pretty widely known/used programs. They do exactly what we needed -- they're image manipulation programs that have a CLI (command line interface), so all of the processes can be automated through code.
+
+However, ImageMagick and GraphicsMagick are heavy downloads. Despite having CLIs and even NPM modules that help it play nice with Node.js and Gulp, they would bring a LOT of baggage. They're also both monolithic programs with lots of functionality we won't use. This clashes with our design philosophy. Having extra tools isn't necessarily a bad thing, but when they're such heavy commitments they don't really fit with our Framework.
+<h3>Sharp</h3>
+Sharp was a <a href="http://sharp.dimens.io/en/stable/">different story</a>. It's advertised as an extremely fast image processor -- four to five times faster than ImageMagick/GraphicsMagick. Again, this seems to be a good option but for one caveat. For use with Mac OS X it has an additional dependency -- the libvips library. This discrepancy for a single operating system is something we would like to avoid. Installing libvips is also another hefty commitment, and it also makes our Framework setup different for Mac users in a large way. It makes our Framework clunky, so I was on the hunt for another different option.
+<h2>Jimp</h2>
+What I had found while looking around on the internet was a little project called JIMP (Javascript Image Manipulation Program). It was fully equipped with a large number capabilities, and only depended on Javascript for it's functionality. This was great for our use case -- it had few dependencies and Javascript plays nice with Node and Gulp. I even found a Gulp plugin already made for it, and I set out testing it to see if it was timely. I thought (disappointingly) that the search was over fairly quickly.
+
+While testing <a href="https://www.npmjs.com/package/gulp-jimp">the plugin</a> I came across a pretty serious bug. When an image was put through multiple settings in a row, the changes from the last manipulation were also passed through to the next. This created weird distorting chains of  changes that gave horrible quality images when done. One of the bugs open on the Github project is related to this, and no fix has been attempted. So rather than wait for some stranger to fix his code, I decided to make my own plugin. If you want a job done well, you have to do it yourself.
+<h2>Where to start?</h2>
+Thankfully the problem with the plugin wasn't JIMP. A plugin for Gulp, simply put, is a wrapper around JIMP that takes a stream with the images in it, and instead of writing to disk, puts the changed images back into the stream and pushes it down the pipe somewhere else. Sounds simple, right? Not quite.
+
+Playing with Vinyl Object Streams and all the other specialities is difficult. The examples online are very vague, and abstract which makes it hard to pick up these skills when the example code you have to look at is either extremely dumbed down, or overly complicated.
+
+I hope to put pieces of my code up and walk through small pieces of the Gulp plugin development process later, but if you (yes you) aren't my parents who are just reading this for fun, and are looking for an easy way to implement image resizing into your Gulp tasks with few dependencies -- be sure to watch the development of my <a href="https://www.npmjs.com/package/gulp-jimp-resize">NPM module</a>. The current design is very tailored to Connective DX, but my development on it is continued and I hope to make it very accessible and universal. On that personal plug, I'll wait until next time to put some code up and walk through it.
+
+--end
+
+<br><br><br><br>

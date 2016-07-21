@@ -1,0 +1,54 @@
+.card-bouncer {
+    position: relative;
+}
+
+.card-bouncer > * {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: -40px 0 0 -40px;
+}
+
+$delay1: random(15); //this is calculated once, not per instance
+$delay2: random(15);
+
+.card-bouncer.is-bouncing {
+    animation: bouncy-jumpy 15s infinite linear;
+    animation-delay: $delay1*1s;
+   
+}
+
+.card-bouncer.is-twisting {
+    animation: twisty-turny 15s infinite linear;
+    animation-delay: $delay2*1s;
+}
+
+$jumpScale: 1; //for want of a larger bouncy-jumpy
+
+@keyframes bouncy-jumpy {
+    0% {transform: translate3d(0px, 0px, 0px);}
+    1.0% {transform: translate3d(0px, $jumpScale*-28px, 0px);}
+    2.0% {transform: translate3d(0px, $jumpScale*-45px, 0px);}
+    2.5% {transform: translate3d(0px, $jumpScale*-50px, 0px);}
+    3.2% {transform: translate3d(0px, $jumpScale*-35px, 0px);}
+    3.9% {transform: translate3d(0px, $jumpScale*-6px, 0px);}
+    4.2% {transform: translate3d(0px, $jumpScale*-0px, 0px);}
+    4.7% {transform: translate3d(0px, $jumpScale*-10.5px, 0px);}
+    5.0% {transform: translate3d(0px, $jumpScale*-16.75px, 0px);}
+    5.4% {transform: translate3d(0px, $jumpScale*-15.25px, 0px);}
+    5.7% {transform: translate3d(0px, $jumpScale*-12px, 0px);}
+    6.7% {transform: translate3d(0px, $jumpScale*0px, 0px);}
+};
+
+@keyframes twisty-turny {
+    0% {transform: rotateY(0, 0, 0, 0);}
+    1.25% {transform: rotateZ(15deg)}
+    2.0% {transform: rotateZ(10deg)}
+    2.5% {transform: rotateZ(0)}
+    3.75% {transform: rotateZ(-15deg)}
+    4.5% {transform: rotateZ(-10deg)}
+    5.5% {transform: rotateZ(7.5deg)}
+    6.0% {transform: rotateZ(5deg)}
+    7.0% {transform: rotateZ(-2.5deg)}
+    7.5% {transform: rotateZ(0deg)}
+}

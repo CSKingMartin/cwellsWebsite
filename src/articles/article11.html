@@ -1,0 +1,170 @@
+<h1>Javascript to Gulp</h1>
+<h3>July 20, 2016</h3>
+
+<h2>Good Lord I'm Bad at Blogging</h2>
+"Soon" turned into next week, but here we are. I'm going to talk today a bit about transferring ideas in Javascript to ideas using Vinyl Object Streams for Gulp plugins.
+<h2>Javascript</h2>
+The Javascript portion of what I wanted to create was relatively simple. In fact, I really didn't have to do much at all to write a small script that would take globbed files from a directory, and perform a predefined set of tasks on them
+<pre>function goGoGadgetImageResize(path, filename, data) {
+    var width = data.width;
+    var suffix = data.suffix;
+    var crop = data.crop;
+    var horizontal = data.horizontal;
+
+    Jimp.read(path, function(err, image) {
+        if (err) throw err;
+ 
+        image.resize(width, Jimp.AUTO).quality(100)
+        if(crop == true)  {
+            var center = (image.bitmap.width - width)/2;
+            if(horizontal == true) {
+                image.crop(center, 0, width, width)
+            }
+            else { 
+                image.crop(0, center, width, width)
+            }
+        }
+        image.write(filename + suffix + ".jpg", function(err)  {
+            if(err) {
+                 console.log('write error:', err);
+            }
+        });
+    });
+};</pre>
+Jimp has it's own API, and I just used the pieces that I wanted to. For every image I had, I would pass it the path, filename, and the operations (data) I was performing on the image. This isn't very DRY, and outside of this function were loops that didn't do any of this beautifully. But it worked, none the less. This is what I wanted to translate.
+<h2>Some Notes/Context about Gulp</h2>
+Gulp's main thing is using Streams. Streams are a bit tricky to wrap your head around, but essentially they're structures that allow you to create a pipeline of tasks to be complete. The sentence "transform streams take streams, and return streams" seems like nonsense, but is absolutely true. A better place to learn more about streams is <a href="https://github.com/substack/stream-handbook">here</a>.
+
+We care about streams especially when writing a Gulp plugin is because we have to take a stream of files, do the Javascript operations on those files, put those files back into the stream, and pipethem somewhere else.
+
+<!-- <img src="https://i.imgflip.com/17ncwo.jpg" /> -->
+
+Seem's pretty easy right?
+<h2>"Not so Good, Al"</h2>
+It turns out that there's a lot more knowledge required than just that. I started looking at other plugins for a bit of direction on where to even start. <a href="https://github.com/contra/gulp-concat">gulp-concat</a> and <a href="https://github.com/sindresorhus/gulp-imagemin">gulp-imagemin</a> are often cited as good examples. The <a href="https://github.com/gulpjs/gulp/tree/master/docs/writing-a-plugin">writing a plugin</a> page on the Gulp official docs is also helpful. But it was very hard for me to take these simple examples and abstract them to changing image content.
+
+Let's break down a bit of my original code. Keep in mind this was a first attempt and did NOT work as expected:
+<pre>'index.js'
+function gulpJimpResize(options) {
+    if(!options) {
+        throw new PluginError(PLUGIN_NAME, 'Missing options entry!');
+    }
+
+    return through.obj(function(file, enc, next) { //transform stream
+        if(file.isNull()) {
+            throw new PluginError(PLUGIN_NAME, 'No files detected!');
+            return cb(null, file);
+        }
+
+        for(i = 0; i &lt; options.length; i++) {
+            var param = options[i];
+            var data = defaults[param];
+            var path = file.path.toString();
+            var name = file.relative.toString();
+
+            goGoGadgetImageResize(path, name, data);
+        }
+        this.push(file);
+        next();
+    }
+};
+
+module.exports = gulpJimpResize;</pre>
+We're actually going to start at the bottom of my code, first.
+
+The "module.exports" line is common amongst any node.js style plugin. When you include a module or plugin like, for example, in a gulpfile:
+<pre>'gulpfile.js'
+var jimp = require("gulp-jimp-resize");
+var gulp = require('gulp');</pre>
+The gulpfile is going to find 'gulp-jimp-resize' in the 'node_modules' folder, and reference the 'index.js' file. What 'index.js' exports is what is accessed by an 'includes' statement. That is, when I'm piping things into this plugin via gulp, the contents are being piped into THIS function, in this case -- gulpJimpResize which is the function shown.
+
+Next, let's look at the function itself. Remember, this is my FIRST attempt and it did NOT work as expected. Most of the top half of the function are error statements. Inside the for loop, I'm passing each option in turn along with the file to my goGoGadgetImageResize function. If this function looks the same as before, presto chango! It should work (it did). But this in itself is a very, very poor gulp plugin.
+<h2>Why?</h2>
+This function returns a Transform stream, like it's supposed to. It looks like this:
+<pre>'index.js'
+return through.obj(function(file, enc, next) {
+    //do stuff to the file
+    this.push(file); //push file back into the stream
+
+    next(); //callback to continue to next image
+}</pre>
+This was basically the pattern that most of the examples that I looked at followed. Get your image in, do stuff to it, use "this.push(file)" to push it back into the stream, and continue on your merry way. But I needed my plugin to push more than one new file per image. We have a notable absence of code that would do that.
+<h2>Promises</h2>
+The next iteration of my code makes quite a few jumps in thinking, so again I'll try and give some context. First we need to understand "synchronous" and "asynchronous" events. Here's a good explanation of the two I found on Stack Overflow:
+<blockquote><strong>Synchronous:</strong> You want a pizza for dinner and you are out of the frozen kind. So you have to stop playing WOW which upsets your clan. You go to the kitchen, make the dough, cover it with sauce, add the cheese, and smother it your favorite bacon topping. You just spent 20 minutes of your time making the pizza with another 10 minutes in the oven. The timer beeps and you pull the hot pie out. You can sit back down in front of your computer, eat the pizza, and continue with your conquest.
+
+<strong>Asynchronous:</strong> You want a pizza for dinner while playing WOW. You open up a browser window on your 5th monitor. You load up the Pizza website and order your extra cheesy bacon pizza with a side of bacon grease garlic sauce. You go back to your raid and after 20 minutes the door bell rings. You get the pizza. You sit back down in front of your computer, eat the pizza, and continue with your conquest.</blockquote>
+<h3>Here's the rub:</h3>
+The mix of the two functions at in the last iteration of gulp-jimp-resize didn't properly allow for control of when and where both these types of events would finish. Callbacks and Promises are two different ways to handle asynchronous event control, and I use a bit of both in the next version:
+<pre>'index.js'
+function gulpJimpResize(options)  {
+    if (!options) {
+        throw new PluginError(PLUGIN_NAME, 'Missing options entry!');
+    }
+    return through.obj(function(file, enc, cb)  {
+        if(file.isNull())  {
+            throw new PluginError(PLUGIN_NAME, 'No files passed!');
+            return cb(null, file);
+        }
+        
+        Promise.all(options.map(optName =&gt; goGoGadgetImageResize(file, 
+            defaults[optName])))
+            .then(imageArray =&gt;  {
+                imageArray.forEach(image =&gt; this.push(image))
+                cb();
+            });
+    });
+}
+
+module.exports = gulpJimpResize;</pre>
+This looks a lot different than before, huh? (that's because it actually works.) Let's dive into the Promise.all bit --
+
+Promises are one of two ways to handle asynchronous events. They basically are a set of tasks that will be 'resolved' or 'rejected,' meaning they'll finish or error. The translation of this bit in English would look something like this:
+<blockquote>For every option we've been given, we'll pass it to the 'process' function along with the image we've been given. The new images from the 'process' function are put in an array called imageArray. When finished, we'll then take the contents of imageArray, and add them to the stream. Then we'll callback, and continue to process the next image.</blockquote>
+Pretty slick, no? Promises are a nice way to avoid "callback hell," and read pretty easily. I also used Promises in one other spot:
+<pre>'index.js'
+
+function goGoGadgetImageResize (file, option)  {
+    
+    var side = option.width;
+    var suffix = option.suffix;
+    var crop = option.crop;
+    var horizontal = option.horizontal;
+    var path = file.path;
+
+    var name = path.substring(path.lastIndexOf('\\')+1, path.lastIndexOf('.'))
+        + ".jpg";
+  
+    return new Promise(function(resolve, reject)  {
+        Jimp.read(file.contents, function*err, image)  {
+            if (err)  {
+                reject(err);
+                return;
+            }
+        ....
+        //PROCESS THE IMAGE
+        ....
+            var newImg = image.getBuffer(Jimp.MIME_JPEG, function(err, buffer)  {
+                if (err)  {
+                    reject(err);
+                    return;
+                }
+                resolve(new gutil.File({
+                    path: name,
+                    contents: buffer
+                })); //closes resolve
+            }); //closes var newImg
+        }); //closes Jimp.read
+    }) //closes promise
+}; //closes function</pre>
+What's been changed here in our processing function is the way we return the new image. In our Javascript version, it was okay to just write the new image to disk. Here though, we want to push these new files to the stream. So we use some of Jimp's functionality to get the buffer from the new image, and we create a new Vinyl object to play nice with Gulp and Streams. Notice this bit is in the 'resolve' part of our Promise, so when we are successful that is what we pass along the Promise chain.
+
+Hopefully this makes some kind of sense to you :) It was a long process of trial and error, and I still don't understand some of the concepts in their entirety yet.
+
+My current code looks slightly different, but in essence uses these same concepts and tools. You can find that <a href="https://github.com/CSKingMartin/gulp-jimp-resize">here</a>. Note that I did separate the goGoGadgetImageResize function out into a different Javascript file ('resize.js').
+
+I'll post a bit about why I did that later.. I think this post is already a little too long!
+
+Ask questions if you like. Until next time,
+
+--end

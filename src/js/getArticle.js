@@ -1,4 +1,5 @@
 function loadArticle(index) {
+	console.log(index);
 	$.ajax({ url: './articles/article' + index + '.html',
 			success: function(str) {
 				$("#mainContent").html(str);
@@ -19,8 +20,8 @@ function loadArticle(index) {
 
 $(function() {
 	$(window).on('hashchange', function() {
-		var index = location.hash;
-		var i = index.slice(-1);
+		var index = location.hash.toString();
+		var i = index.substring(index.lastIndexOf('e')+1);
 		//alert(i);
 
 		loadArticle(i);

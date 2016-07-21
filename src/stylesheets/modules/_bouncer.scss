@@ -1,0 +1,42 @@
+.bouncer {
+    position: relative;
+}
+
+.bouncer > * {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: -40px 0 0 -40px;
+}
+
+.bouncer.is-bouncing > img {
+    animation: bouncy-jumpy 15s infinite linear;
+}
+
+.bouncer.is-twisting > img {
+    animation: twisty-turny 15s infinite linear;
+}
+
+@keyframes bouncy-jumpy {
+    0%, 4.2%, 6.7% {transform: translate3d(0, 0, 0)}
+    1.0% {transform: translate3d(0, -35%, 0)}
+    2.0% {transform: translate3d(0, -56.25%, 0)}
+    2.5% {transform: translate3d(0, -62.5%, 0)}
+    3.2% {transform: translate3d(0, -43.75%, 0)}
+    3.9% {transform: translate3d(0, -7.5%, 0)}
+    4.7% {transform: translate3d(0, -13.125%, 0)}
+    5.0% {transform: translate3d(0, -21%, 0)}
+    5.4% {transform: translate3d(0, -19%, 0)}
+    5.7% {transform: translate3d(0, -15%, 0)}
+}
+
+@keyframes twisty-turny {
+    0%, 2.5%, 7.5% {transform: rotateZ(0deg)}
+    1.25% {transform: rotateZ(15deg)}
+    2.0% {transform: rotateZ(10deg)}
+    3.75% {transform: rotateZ(-15deg)}
+    4.5% {transform: rotateZ(-10deg)}
+    5.5% {transform: rotateZ(7.5deg)}
+    6.0% {transform: rotateZ(5deg)}
+    7.0% {transform: rotateZ(-2.5deg)}
+}
